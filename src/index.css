@@ -11,5 +11,54 @@ body {
   display: inline-flex;
   flex-direction: row;
   gap: 3em;
+  padding: 2em;
+
+}
+
+.single-message {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
+}
+
+.date-and-name {
+  display: flex;
+  flex-direction: row;
+  gap: 0.5em;
+  font-size: small;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+    width: 20vw;
+  min-width: 200px;
+  padding: 1em;
+  padding-top: 0;
+  font-family: "Cambria Math";
+
+}
+
+.current-user {
+  align-self: flex-end;
+}
+
+.current-user > div {
+  background-color: rgba(129, 134, 152, 0.32);
+
+}
+
+
+.message-box {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+.text {
+  border-radius: 10px;
+  background-color: rgba(0, 0, 255, 0.38);
+  padding: 0.5em;
+  text-align: center;
 
 }

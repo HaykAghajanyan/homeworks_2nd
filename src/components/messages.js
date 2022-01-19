@@ -1,6 +1,6 @@
 import SingleMessage from "./singleMessage"
 export default function Messages ({data}) {
-    return <div>
+    return <div >
         <SingleMessage data={data}/>
     </div>
 }
