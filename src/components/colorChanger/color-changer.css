@@ -1,0 +1,8 @@
+.selects {
+    display: flex;
+    margin-left: 35%;
+}
+
+.select {
+    padding: 10px;
+}
