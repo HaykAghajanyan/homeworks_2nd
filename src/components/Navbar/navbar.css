@@ -1,0 +1,20 @@
+header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+
+    border: 1px solid;
+
+    min-height: 100px;
+
+    margin-bottom: 25px;
+}
+
+.no-underline{
+    text-decoration: none;
+}
+
+.text-big-size {
+    font-size: 30px;
+}
