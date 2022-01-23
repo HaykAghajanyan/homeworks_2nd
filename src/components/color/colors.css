@@ -1,0 +1,23 @@
+h4 {
+    margin: 5px 5px
+}
+
+.btn {
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 12px;
+    margin: 10px 10px;
+    border-radius: 50px;
+}
+
+.btn:hover {
+    border: 1px #4CAF50 solid;
+    background-color: #4CAF50;
+    color: white;
+}
+
+.color {
+    margin: 5px 5px
+}
