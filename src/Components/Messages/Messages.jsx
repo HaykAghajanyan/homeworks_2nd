@@ -13,16 +13,13 @@ function Messages(){
         .then(result => setMessages(result['messages']));
     }, []);
     
-    const hendleColorName = useCallback((color) =>{
+    const hendleColor = useCallback((color, text_name) =>{
         setMessages(prev => prev.map(item =>{
-            item.nameColor = color;
-            return item;
-        }))
-    }, []);
-
-    const hendleColorText = useCallback((color) =>{
-        setMessages(prev => prev.map(item =>{
-            item.textColor = color;
+            if(text_name === "Name"){
+                item.nameColor = color;
+            } else if(text_name === "Text"){
+                item.textColor = color;
+            }
             return item;
         }))
     }, []);
@@ -39,8 +36,7 @@ function Messages(){
                     <Route 
                         path="/select" element={<Select 
                         messages={messages} 
-                        hendleColorName={hendleColorName}
-                        hendleColorText={hendleColorText}
+                        hendleColor={hendleColor}   
                     />}/>
                 </Routes>
             </div>

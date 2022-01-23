@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styles from './messages.module.css';
 
 const colors = {
@@ -12,12 +12,13 @@ const colors = {
     Blue: 'blue',
 }
 
-function Select({hendleColorName, hendleColorText}){
+function Select({hendleColor}){
+    const [color, setColor] = useState("black");
     return(
         <div className={styles.select}>
             <div>
                 <p>Color name</p>
-                    <select onChange={(e) => hendleColorName(e.target.value)}>
+                    <select onChange={(e) => setColor(e.target.value)}>
                         <option  defaultValue= ""  hidden>Colors</option>
                         {Object.keys(colors).map((item, index) => {
                             return(
@@ -28,13 +29,10 @@ function Select({hendleColorName, hendleColorText}){
             </div>
             <div>
                 <p>Color text</p>
-                <select onChange={(e) => hendleColorText(e.target.value)}>
-                        <option defaultValue= ""  hidden>Colors</option>
-                        {Object.keys(colors).map((item, index) => {
-                            return(
-                                <option key={index} value={colors[item]} style={{color: colors[item]}}>{item}</option>
-                            )
-                        })}
+                <select onChange={(e) => hendleColor(color, e.target.value)}>
+                        <option defaultValue= ""  hidden>Name or text</option>
+                        <option value="Name">Name</option>
+                        <option value="Text">Text</option>
                 </select>
             </div>
         </div>
