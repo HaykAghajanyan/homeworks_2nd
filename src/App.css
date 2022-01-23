@@ -1,0 +1,65 @@
+.block {
+  font-size: 15px;
+  margin: 22px;
+  border: 2px solid black;
+  border-radius: 4px;
+  width: 550px;
+  display: inline-block;
+  min-height: 130px;
+}
+
+
+.btn {
+  text-align: center;
+  margin: 17px;
+}
+
+.date {
+  text-align: center;
+  margin-bottom: 37px;
+}
+
+.span {
+  display: block;
+  margin: 7px;
+}
+
+.brightness {
+  color: lightslategrey;
+  margin-right: 7px;
+}
+
+.classnav {
+  margin: 12px;
+}
+
+.clicksel {
+    display: inline-block;
+    margin-right: 24px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
