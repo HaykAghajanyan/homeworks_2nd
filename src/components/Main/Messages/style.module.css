@@ -1,0 +1,81 @@
+.message{
+    /* margin-top: 5px;
+    max-height: 50px;
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+    height: 50px;
+    align-items: center;
+    box-shadow:  inset 0px 0px 2px 0px #00000085; */
+    display: grid;
+    grid-template-columns: 1fr 6fr 1fr;
+    grid-template-rows: 50% 50%;
+    height: 45px;
+    width: 332px;
+    border-radius: 30px;
+    margin: auto;
+    grid-template-areas:
+        "a b d"
+        "a c .";
+    margin-bottom: 20px;
+   
+}
+.message:hover{
+    background: #1a1f2b;
+    cursor: pointer;
+    transition: .3s;
+}
+.message>div{
+    padding: 0px 20px;
+}
+.avatar{
+position: relative;
+width: 44px;
+height: 44px;
+left: 0px;
+top: 0px;
+background: url("https://pic.onlinewebfonts.com/svg/img_258083.png");
+filter: drop-shadow(4px 4px 24px rgba(0, 0, 0, 0.45));
+border-radius: 30px;
+background-position: center;
+background-size: 101%;
+background-repeat: no-repeat;
+background-color: white;
+}
+.userName{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    line-height: 18px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+}
+.text {
+    padding: 0px 10px;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 1px;
+    opacity: .4;
+    white-space: nowrap;
+    width: 97%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.date{
+    font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 15px;
+line-height: 18px;
+display: flex;
+align-items: flex-end;
+text-align: right;
+letter-spacing: 1px;
+text-transform: capitalize;
+color: #ffffff90;
+}

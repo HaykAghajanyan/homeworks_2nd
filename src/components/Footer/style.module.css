@@ -1,0 +1,8 @@
+.footer{
+    height: 60px;
+    max-width: 100vw;
+    background: #53596b;
+    display: grid;
+    grid-template-columns: auto;
+    align-items: center;
+}
