@@ -1,0 +1,25 @@
+.container, .header, .main {
+    display: flex;
+}
+
+.main {
+    flex-direction: column;
+    max-width: 300px;
+}
+
+.header {
+    justify-content: space-between;
+    flex-direction: row-reverse;
+    align-items: flex-end;
+}
+
+.content {
+    padding: 5px 10px;
+    border: 1px solid #c4c4c4;
+    border-radius: 10px;
+    color: gray;
+}
+
+.small {
+    font-size: 12px;
+}
