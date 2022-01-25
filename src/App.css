@@ -12,12 +12,22 @@
 }
 
 .right {
-  width: 75%;
-  background-color: rgb(217, 248, 239);
+  width: 40%;
   height: auto;
 }
 
 
 .card {
   padding-bottom: 30px;
+}
+
+.select {
+  padding: 10px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px;
+  width: 150px;
+  background-color: orange
 }

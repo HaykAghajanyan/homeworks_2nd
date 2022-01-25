@@ -9,7 +9,8 @@ function App() {
 
   
   const [data, setData] = useState();
-
+  const [color, setColor] = useState('');
+  const [selectedItem, setSelectedItem] = useState('');
 
   useEffect(() => {
     fetch('/db.json')
@@ -19,15 +20,6 @@ function App() {
             setData(res);
         });
 }, [])
-//   useEffect(() => {
-//     fetch('../public/db.json')
-//         .then(res => res.json())
-//         .then(res => {
-//           console.log(res);
-//             setData(res);
-//         });
-// }, [])
-
 
 
   return (
@@ -35,8 +27,8 @@ function App() {
     <div className='row'>
       <Navbar />
         <Routes>
-          <Route  path='/messages' element={<Messages data={data}  />}/>
-          <Route path='/main' element={<Main />} />
+          <Route  path='/messages' element={<Messages data={data} selectedItem={selectedItem} color={color} />}/>
+          <Route path='/main' element={<Main setColor={setColor} setSelectedItem={setSelectedItem}/>} />
         </Routes>
         </div>
     </BrowserRouter>
