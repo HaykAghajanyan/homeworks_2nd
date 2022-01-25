@@ -1,0 +1,1 @@
+export default "MESSAGE_DESIGNER_STORAGE_KEY"

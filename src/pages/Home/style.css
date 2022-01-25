@@ -1,0 +1,46 @@
+.message_list {
+	width: 100%;
+	max-width: 650px;
+	min-width: 320px;
+	padding: 0.5rem !important;
+	margin: 0 auto !important;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+.message_list__item {
+	padding: 5px;
+	border-bottom: 1px solid black;
+}
+
+.message_list__item:last-child {
+	border: 0;
+}
+
+.message_list__item > div {
+	width: 65%;
+}
+
+.message_list__title {
+	width: 100%;
+	position: relative;
+	color: #000;
+	padding-bottom: 8px;
+	font-size: 1.25rem !important;
+}
+.message_list__title::after {
+	content: attr(data-date);
+	position: absolute;
+	top: 5px;
+	right: 0;
+	font-size: 11px;
+	color: #525252;
+}
+.message_list__text {
+	width: 100%;
+	max-height: 400px;
+	overflow-y: auto;
+	color: #000;
+	font-size: 0.75rem !important;
+}

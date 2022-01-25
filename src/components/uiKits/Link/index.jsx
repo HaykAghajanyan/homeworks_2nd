@@ -6,7 +6,13 @@ const useStyles = makeStyles({
 	link: {
 		margin: '2px 5px',
 		textDecoration: 'none',
-		fontSize: '1rem'
+		fontSize: '1rem',
+		'&.active:hover': {
+			cursor: 'default'
+		},
+		'&:hover:not(.active)': {
+			textDecoration: 'underline',
+		}
 	}
 })
 
@@ -15,7 +21,6 @@ function Link({ to, children }) {
 	let activeStyle = {
 		color: '#fff',
 		fontWeight: 'bold',
-		textDecoration: 'underline',
 		fontSize: '1.15rem'
 	};
 	return (
