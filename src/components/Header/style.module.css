@@ -1,8 +1,42 @@
 .header{
-    height: 80px;
+    height: 100px;
     max-width: 100vw;
     background: #292F3F;
     display: grid;
-    grid-template-columns: 1fr 5fr 1fr;
+}
+.userInfo{
+    width: 80%;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
     align-items: center;
+    padding-top: 30px;
+    margin: auto;
+}
+.userAvatar{
+    margin: auto;
+    position: relative;
+    width: 45px;
+    height: 45px;
+    background: #000000;
+    border-radius: 22px;
+    background: url(https://pic.onlinewebfonts.com/svg/img_258083.png);
+    filter: drop-shadow(4px 4px 24px rgba(0, 0, 0, 0.45));
+    border-radius: 30px;
+    background-position: center;
+    background-size: 101%;
+    background-repeat: no-repeat;
+    background-color: white;
+}
+.userNickName{
+    margin: auto;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 27px;
+    line-height: 32px;
+    display: flex;
+    align-items: flex-end;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+    color: #FFFFFF;
 }

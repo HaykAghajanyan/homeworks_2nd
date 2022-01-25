@@ -2,7 +2,7 @@ import React from "react";
 import style from "./style.module.css"
 const Messages = ({messages})=>{
     return(
-        <>
+        <div className={style.messBox}>
         { messages ?
         messages.map(el=>
         <div className={style.message} key={el.id}>
@@ -12,10 +12,7 @@ const Messages = ({messages})=>{
             <div className={style.date} style={{'gridArea': 'd'}}>{el.date}</div>
         </div>
         ):<span>Your message box is empty</span>}
-
-         
-           
-        </>
+        </div>
     )
 }
 

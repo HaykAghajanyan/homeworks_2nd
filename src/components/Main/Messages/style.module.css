@@ -1,11 +1,17 @@
+.messBox{
+    scroll-behavior: auto;
+    overflow: auto;
+    height: 100%;
+}
+.messBox::-webkit-scrollbar {
+    width: 5px;
+    background-color: #0000;
+}
+.messBox:hover.messBox::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background: #c0c0c066;
+}   
 .message{
-    /* margin-top: 5px;
-    max-height: 50px;
-    display: grid;
-    grid-template-columns: 1fr 6fr 1fr;
-    height: 50px;
-    align-items: center;
-    box-shadow:  inset 0px 0px 2px 0px #00000085; */
     display: grid;
     grid-template-columns: 1fr 6fr 1fr;
     grid-template-rows: 50% 50%;

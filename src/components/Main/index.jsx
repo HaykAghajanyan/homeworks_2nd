@@ -4,24 +4,36 @@ import {Routes, Route } from "react-router-dom";
 import FirstPage from "./FirstPage"
 import Messages from "./Messages";
 import Settings from "./Settings";
+import Filter from './Filter'
+
 
 import style from "./style.module.css"
 
 const Main = ()=>{
-    const [messagItems,setMessagItems] = useState(null);
+    const [searchInput,setSearchInput] = useState('')
+    const [messagItems,setMessagItems] = useState([]);
     useEffect(()=>{
-        fetch("/db.json")
-       .then(r=>r.json())
-       .then(r=>setMessagItems(r[0]['messages']))
-       .catch(err=>console.log('err',err))
+        getMessages()
+        
    },[])
+   const getMessages = ()=>{
+     fetch("/db.json")
+    .then(r=>r.json())
+    .then(r=>{
+        setMessagItems(r[0]['messages'])
+     })
+    .catch(err=>console.log('err',err))
+   }
+   
+
     return(
+        
         <>
             <main className={style.main}>
                 <Routes>
                     <Route path="/" element={<FirstPage />} />
-                    <Route path="/messages" element={<Messages  messages = {messagItems}/>} /> 
-                    <Route path="/settings" element={<Settings   messages = {messagItems} setMessages = {setMessagItems}/>} />
+                    <Route path="/messages" element={<><Filter messages = { messagItems}  setSearchInput={setSearchInput} />  <Messages  messages = {searchInput.length>1 ? searchInput : messagItems }/> </>} /> 
+                    <Route path="/settings" element={<Settings  messages = {messagItems }  setMessages = {setMessagItems}/>} />
                 </Routes>
             </main>
         </>
