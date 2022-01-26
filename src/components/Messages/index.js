@@ -4,8 +4,10 @@ import MessageComp from "../MessageComp";
 import {useEffect} from "react";
 import {FILTER_OPTIONS} from "../../helpers/constants";
 import {NavLink} from "react-router-dom";
+import {useSelector} from "react-redux";
+import {configSelector} from "../../helpers/reduxSelctors";
 
-const Messages = ({configs}) => {
+const Messages = () => {
     const [filteredMessages, setFilteredMessages] = useState([])
     const [filterSelectValue, setFilterSelectValue] = useState(FILTER_OPTIONS[0])
     const [filterInputValue, setFilterInputValue] = useState('')
@@ -14,12 +16,14 @@ const Messages = ({configs}) => {
 
     const {messages} = useMessagesData()
 
+    const {color, target} = useSelector(configSelector)
+
     useEffect(() => {
         filterMessages()
         return () => {
             clearTimeout(inputRef.current)
         }
-    }, [messages, configs, filterSelectValue, filterInputValue])
+    }, [messages, filterSelectValue, filterInputValue])
 
     const filterMessages = () => {
         clearTimeout(inputRef.current)
@@ -27,7 +31,7 @@ const Messages = ({configs}) => {
             const filteredData = messages
                 .filter(item => item[filterSelectValue].includes(filterInputValue))
                 .map(item => {
-                    item[configs.target] = configs.color
+                    item[target] = color
                     return item
                 })
             setFilteredMessages(filteredData)
