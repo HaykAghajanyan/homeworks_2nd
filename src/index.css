@@ -12,8 +12,7 @@ code {
     monospace;
 }
 
-<<<<<<< HEAD
-=======
+
 .header {
   display: flex;
   justify-content: space-around;
@@ -62,7 +61,6 @@ code {
 .message-input {
   width: 300px;
 }
->>>>>>> 0056e4ca4aa47cbcd267b41f160c43015033bf3f
 
 .message-container {
   text-decoration: none;

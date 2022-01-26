@@ -1,14 +1,3 @@
-<<<<<<< HEAD
-import React from 'react';
-import Messages from './Components/Messages/Messages';
-
-function App() {
-  return (
-    <div className="app">
-      <Messages/>
-    </div>
-  );
-=======
 import Header from "./components/Header";
 import {Route, Routes, useNavigate} from "react-router-dom";
 import Messages from "./components/Messages";
@@ -45,7 +34,6 @@ const App = () => {
             </Routes>
         </>
     );
->>>>>>> 0056e4ca4aa47cbcd267b41f160c43015033bf3f
 }
 
 export default App;
