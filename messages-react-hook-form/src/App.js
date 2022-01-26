@@ -1,24 +1,41 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState, useEffect } from "react";
+
+import {
+  Routes,
+  Route
+} from "react-router-dom";
+
+import Layout from './components/Layout';
+import Home from "./components/Home";
+import Filters from "./components/Filters";
+import Login from "./components/Login";
+import Register from "./components/Register";
+
+import allMessages from './data/messages';
+
 
 function App() {
+
+  const [messages, setMessages] = useState(allMessages);
+  const [color, setColor] = useState('black');
+  const [elem, setElem] = useState('textColor');
+
+  useEffect(() => {
+    messages.map( message => message[elem] = color );
+    setMessages(messages);
+  }, [messages, color, elem]);
+  
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    
+        <Routes>
+          <Route path="/" element={<Layout/>}>
+            <Route index element={<Home messages={messages} />}/>
+            <Route path="/filters" element={<Filters messages={messages} setColor={setColor} setElem={setElem} color={color} elem={elem} />}/>
+            <Route path="/login" element={<Login />}/>
+            <Route path="/register" element={<Register />}/>
+          </Route>
+        </Routes>
   );
 }
 
