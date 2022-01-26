@@ -50,7 +50,7 @@ select{
   border-radius: 5px;
   background-color: blanchedalmond;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -69,4 +69,21 @@ select{
   padding: 10px;
   border-radius: 5px;
   margin-bottom: 20px;
+}
+
+.page-selector{
+  text-decoration: none;
+  font-size: 20px;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 7px;
+}
+
+.page-selector:hover{
+  transform: scale(105%);
+}
+
+.page-selector.active{
+  background-color: rgb(70, 70, 70);
+  color: blanchedalmond;
 }

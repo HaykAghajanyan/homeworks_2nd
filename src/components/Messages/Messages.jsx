@@ -1,5 +1,5 @@
 import React from "react";
-import Message from "./Message";
+import Message from "./MessageComp/Message";
 
 const Messages = ({ messages }) => {
   const messageData = messages.map(data => <Message

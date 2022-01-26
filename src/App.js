@@ -1,8 +1,8 @@
 import './App.css';
-import Messages from './components/Messages';
+import Messages from './components//Messages/Messages';
 import { Route, Routes } from 'react-router-dom';
-import Selectors from './components/Selectors';
-import NavBar from './components/NavBar';
+import Selectors from './components/Selectors/Selectors';
+import NavBar from './components/NavBar/NavBar';
 import React, { useState } from 'react';
 
 const messages = [
@@ -104,8 +104,8 @@ function App() {
     <div className="app-wrapper">
       <NavBar />
       <Routes>
-        <Route path='Messages' element={<Messages messages={messages} />} />
-        <Route path='Selectors' element={<Selectors colorChange={colorChange} textNameChange={textNameChange} />} />
+        <Route path='' element={<Messages messages={messages} />} />
+        <Route path='selectors' element={<Selectors colorChange={colorChange} textNameChange={textNameChange} />} />
       </Routes>
     </div>
   );
