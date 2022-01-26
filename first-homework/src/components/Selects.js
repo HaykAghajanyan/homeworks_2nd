@@ -9,10 +9,9 @@ function Selects ({color, setColor, field, setField}) {
     let handleField = (e) => {
         setField (e.target.value);
     }
-    console.log (color)
-    console.log (field)
+
     return (
-        <div>
+        <div style={{backgroundColor: "lightsalmon"}}>
             <label>
                 Select the color: 
                 <select onChange = {handleColor} style={{marginLeft: "1%", color: "green", padding: "0.5%"}}>
