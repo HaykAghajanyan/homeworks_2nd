@@ -99,8 +99,11 @@ header .navbar-brand{
   margin: 10px;
   display: flex;
   justify-content: center;
+  flex-direction: column;
+  align-items: center;
 }
-.form-group .form-control{
+.form-group .form-control,
+.form-group .invalid-feedback{
   min-width:50%;
   width: auto;
 }
