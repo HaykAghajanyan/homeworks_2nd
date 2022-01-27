@@ -75,3 +75,21 @@ body {
     background-color: red;
     color: white;
 }
+
+.login {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    max-width: 200px;
+}
+
+.loggedIn-user {
+    display: inline;
+    position: relative;
+    width: 200px;
+    right: 0vw;
+    top: 15px;
+    float: right;
+}
+
+

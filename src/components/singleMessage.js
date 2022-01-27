@@ -1,6 +1,6 @@
 export default function SingleMessage({data, textClass, nameClass }) {
     return <div className={"message-box"}>
-        {data?.messages.map(({name, date, text, id}) => <div
+        {data.messages.map(({name, date, text, id}) => <div
             key={id}
             className= {  name === "Hayk"? `current-user message` :"message" }
         >

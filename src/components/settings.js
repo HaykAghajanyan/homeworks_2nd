@@ -1,8 +1,9 @@
 import {useState} from "react";
+import {colors, target} from "../helpers/constants";
 
-export default function Settings({colors, selectHandler}) {
-    const [selectedColor, setSelectedColor] = useState("Green");
-    const [selectedAttr, setSelectedAttr] = useState("Name");
+export default function Settings({selectHandler}) {
+    const [selectedColor, setSelectedColor] = useState(colors.GREEN);
+    const [selectedAttr, setSelectedAttr] = useState(target.NAME);
 
 
     return <div>
@@ -14,8 +15,8 @@ export default function Settings({colors, selectHandler}) {
         </select>
 
         <select onChange={(e) => setSelectedAttr(e.target.value)}>
-            <option> Name</option>
-            <option> Text</option>
+            <option> {target.NAME}</option>
+            <option> {target.TEXT}</option>
         </select>
         <button onClick={() => selectHandler(selectedColor, selectedAttr)}> Change color</button>
 
