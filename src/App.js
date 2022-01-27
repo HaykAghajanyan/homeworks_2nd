@@ -1,43 +1,38 @@
-import React from "react";
-import {useState} from "react";
-import {
-    BrowserRouter as Router,
-    Route,
-    Link,
-    Routes
-} from "react-router-dom";
+import Header from "./components/Header";
+import {Route, Routes, useNavigate} from "react-router-dom";
+import Messages from "./components/Messages";
+import Configs from "./components/Configs";
+import {useCallback, useState} from "react";
+import PopupWrapper from "./components/PopupWrapper";
+import PopupMessage from "./components/PopupMessage";
 
-import Messages from "./components/messages/messages";
-import Colors from "./components/color/colors";
+const App = () => {
+    const [configs, setConfigs] = useState({})
 
-function App() {
+    const navigate = useNavigate()
 
-    const [colorOfText, setColorOfText] = useState();
-    const [colorOfName, setColorOfName] = useState();
+    const handleConfigs = useCallback((configsObj) => {
+        setConfigs(configsObj)
+    }, [])
 
-    function handlerSelection(colorSelection, itemSelection) {
-        if (itemSelection === "name") {
-            setColorOfName(colorSelection);
-        } else if (itemSelection === "text") {
-            setColorOfText(colorSelection);
-        }
+    const goBack = () => {
+        setTimeout(() => {
+            navigate('..')
+        }, 200)
     }
 
     return (
-        <Router>
-            <div>
-                <nav>
-                    <Link to="/">Messages</Link>
-                    <span> <Link to="/chooseColor">Colors</Link> </span>
-                </nav>
-
-                <Routes>
-                    <Route path='/' element={<Messages  colorOfText={colorOfText} colorOfName={colorOfName}/>} />
-                    <Route path='/chooseColor' element={<Colors handlerSelection={handlerSelection}/>} />
-                </Routes>
-
-            </div>
-        </Router>
+        <>
+            <Header/>
+            <Routes>
+                <Route path='' element={<Messages configs={configs}/>}/>
+                <Route path='configs' element={<Configs handleConfigs={handleConfigs}/>}/>
+                <Route path=':id' element={
+                    <PopupWrapper onClose={goBack}>
+                        <PopupMessage/>
+                    </PopupWrapper>}/>
+            </Routes>
+        </>
     );
 }
 
