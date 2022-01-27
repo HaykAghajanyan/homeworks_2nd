@@ -1,0 +1,118 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+header {
+  border-bottom: 1px solid #ccc;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-end;
+  max-width: 1320px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+}
+
+header .navbar{
+  width: 100%;
+}
+
+header .navbar-brand{
+  text-transform: uppercase;
+  width: 500px;
+  font-size: 20px;
+  padding: 20px;
+  margin-left: 20px;
+  color: #0d6efd !important;
+  font-weight: bold;
+}
+
+/* Filters */
+
+.filters{
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 10px 0;
+}
+
+.filters select{
+  padding: 5px 10px;
+  font-size: 16px;
+  background-color: #F5F5F5;
+}
+
+/* Home / messages */
+
+.messages{
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.message{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px;
+  min-height: 50px;
+  margin-bottom: 10px;
+  background-color: #F8F9FA;
+  border-bottom: 1px solid #0d6efd;
+}
+
+.message div{
+  padding: 10px;
+  border-right: 1px dashed #0d6efd;
+}
+
+.message div:last-child{
+  padding: 10px;
+  border-right: none;
+}
+
+.message .name,
+.message .date{
+  width: 10%;
+  min-width: 100px;
+}
+
+.message .text{
+  flex-grow: 1;
+}
+
+/* Forms */
+.form-group{
+  margin: 10px;
+  display: flex;
+  justify-content: center;
+}
+.form-group .form-control{
+  min-width:50%;
+  width: auto;
+}
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #0d6efd!important;
+  background-color: #dbe9ff!important;
+  border: 1px solid #0d6efd!important;
+  border-radius:0;
+}
+.form-bottom{
+  text-align: center;
+}
+.form-bottom .btn{
+  margin-top: 10px;
+}
