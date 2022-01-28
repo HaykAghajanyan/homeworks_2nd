@@ -66,11 +66,11 @@ const Messages = ({configs}) => {
             </div>
             {
                 filteredMessages.map(message => (
-                    <NavLink key={message.id} className='message-container' to={`${message.id}`}>
+                    // <NavLink key={message.id} className='message-container' to={`${message.id}`}>
                         <div className='message-item'>
                             <MessageComp item={message}/>
                         </div>
-                    </NavLink>
+                    // </NavLink>
 
                 ))
             }

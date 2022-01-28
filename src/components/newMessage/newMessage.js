@@ -1,22 +1,32 @@
 import React, {useState} from 'react';
 import {useMessagesData} from "../../contexts/messagesContext";
+// import fs from "fs";
+// let fs = require('fs');
 
-function NewMessage({loggedUser}) {
-    const {messages} = useMessagesData()
-    const [newUser, setNewUser] = useState({name: '', date: '', text:""});
-    const [theArray, setTheArray] = useState(messages);
+function NewMessage() {
+
+    const [newMessage, setNewMessage] = useState('');
 
 
-    const handelUser = () => {
-        setTheArray( [...theArray, newUser])
-        console.log(newUser)
-        console.log(messages)
-        console.log(loggedUser)
+
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        // fs.appendFile('/db.json', 'Hello content!', function (err) {
+        //     if (err) throw err;
+        //     console.log('Saved!');
+        // });
+        console.log(newMessage);
     }
 
     return (
         <div>
-            <button onClick={handelUser}>Add User</button>
+            <form onSubmit={handleSubmit}>
+                <textarea type="text" cols="30" rows="10" value={newMessage}
+                          onChange={e => setNewMessage(e.target.value)}> </textarea>
+                <br/>
+                <input type = "submit" value="Add Message" className="btn_submit" alt = "submit Checkout" />
+            </form>
         </div>
     );
 }

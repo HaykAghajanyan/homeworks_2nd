@@ -19,11 +19,11 @@ function LogInForm({ login, error }) {
                     {(error !== '')? (<div className='error'>{error}</div>) : ''}
                     <div className='form-group'>
                         <label htmlFor="username">Name: </label>
-                        <input type="text" name='username' id='username' onChange={e => setDetails({...details, username: e.target.value} )} value={details.username}/>
+                        <input type="text"  onChange={e => setDetails({...details, username: e.target.value} )} value={details.username}/>
                     </div>
                     <div className='form-group'>
                         <label htmlFor="password">Password:  </label>
-                        <input type="password" name='password' id='password'
+                        <input type="password"
                                onChange={e => setDetails({...details, password: e.target.value} )} value={details.password}/>
                     </div>
                     <input type="submit" value='LOGIN' />

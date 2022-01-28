@@ -2,10 +2,13 @@ import React, {useCallback, useState} from 'react';
 import LogInForm from "./logInForm";
 import {users} from "../../helpers/constants";
 import './logIn.css'
+import { useNavigate} from "react-router-dom";
 
-function LogIn() {
-    const [user, setUser] = useState({username: ''})
-    const [error, setError] = useState('')
+
+function LogIn({configs}) {
+    const navigate = useNavigate();
+    const [user, setUser] = useState({username: ''});
+    const [error, setError] = useState('');
 
     const login = useCallback((details) => {
         users.forEach(user => {
@@ -19,6 +22,9 @@ function LogIn() {
         })
     }, [])
 
+
+
+
     const logout = () => {
         setUser({username: ''});
     }
@@ -29,7 +35,8 @@ function LogIn() {
                 <div className='welcome'>
                     <h2>Welcome, <span>{user.username}</span></h2>
                     <button onClick={logout}>LOGOUT</button>
-                </div>
+                </div> ,
+                navigate("messages")
             ): (
                 <LogInForm login={login} error={error}/>
             )
