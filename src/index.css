@@ -39,8 +39,37 @@ body {
 
 }
 
-.message:hover {
+#deleteMessage {
+    width: 20px;
+    margin: 3px;
+    align-self: center;
+    color: red;
+    border: 0;
+    z-index: 10;
     cursor: pointer;
+}
+
+.edit-delete-buttons{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.message-text {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.message-text:hover {
+    transition: 0.5s;
+    /*width: 250px;*/
+}
+
+.message-text:hover + #deleteMessage {
+    cursor: pointer;
+    display: inline;
 }
 
 .current-user {
@@ -49,10 +78,8 @@ body {
 
 .current-user > div {
     background-color: rgb(9 106 217);
-    color: white;
+    /*color: white;*/
     padding: 0.5em;
-
-
 }
 
 
@@ -62,13 +89,13 @@ body {
     max-width: 400px;
 }
 
+
+
+
 .text {
     border-radius: 10px;
     background-color: #E4E6EB;
-    text-align: center;
     color: white;
-
-
 }
 
 .Green {
@@ -141,4 +168,8 @@ body {
     width: 30px;
     height: 27px
 
+}
+
+.message-content {
+    min-height: 4em;
 }

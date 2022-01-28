@@ -2,26 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="79cbc99a-6b85-4785-ae7d-276f7e6fc250" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Redux/Ducks/appDuck/appDuck.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Redux/Ducks/userDuck/index.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Redux/Reducers.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Redux/store.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/Login/SignUp.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/newMessage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Login/Login.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Store/store.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/Ducks/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Redux/Ducks/appDuck/appDuck.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/Ducks/appDuck/appDuck.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/messages.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/navigation.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/navigation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/settings.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/settings.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/singleMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/singleMessage.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/helpers/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/helpers/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/newMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/newMessage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +75,7 @@
       <updated>1643264645896</updated>
       <workItem from="1643264647705" duration="22682000" />
       <workItem from="1643356511026" duration="1903000" />
-      <workItem from="1643375858524" duration="5880000" />
+      <workItem from="1643375858524" duration="14267000" />
     </task>
     <servers />
   </component>

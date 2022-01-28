@@ -7,6 +7,7 @@ const CHANGE_TARGET = "appDuck/CHANGE_TARGET";
 const CHANGE_NAME_CLASS = "appDuck/CHANGE_NAME_CLASS";
 const FETCH_USERS = "appDuck/FETCH_USERS";
 const ADD_MESSAGE = "appDuck/ADD_MESSAGE";
+const DELETE_MESSAGE = "appDuck/DELETE_MESSAGE";
 
 
 export const changeColor = (payload) => ({
@@ -41,6 +42,11 @@ export const addMessage = (payload) => ({
     payload
 });
 
+export const deleteMessage = (payload) => ({
+    type: DELETE_MESSAGE,
+    payload
+});
+
 
 const initialState = {
     messages: [],
@@ -65,7 +71,9 @@ const AppDuck = (state = initialState, {type, payload}) => {
         case FETCH_USERS:
             return {...state, messages: payload};
         case ADD_MESSAGE:
-            return {...state, messages: [...state.messages,  payload]};
+            return {...state, messages: [...state.messages, payload]};
+        case DELETE_MESSAGE:
+            return {...state, messages: [...state.messages.slice(0,payload), ...state.messages.slice(payload+1)]};
 
         default:
             return state;
