@@ -2,7 +2,7 @@ export const colors = {
     GREEN: "Green",
     RED: "Red",
     BLUE: "Blue",
-    DEFAULT: "Light Blue"
+    BLACK: "Black"
 };
 
 export const target = {

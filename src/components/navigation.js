@@ -1,4 +1,6 @@
 import {NavLink} from "react-router-dom";
+import {useSelector} from "react-redux/lib/exports";
+
 
 const time = (new Date).getHours();
 
@@ -8,13 +10,16 @@ const showWelcomeTime = (time) => {
     else return "Good evening";
 };
 
-export default function Navigation({loggedInUser, loggedInHandler}) {
+export default function Navigation({loggedInHandler}) {
+
+    const loggedInUser = useSelector(({UserDuck}) => UserDuck.currentUser);
+
 
 
     return (
         <>
             <div className={"loggedIn-user"}>
-                <p> {showWelcomeTime(time)}, {loggedInUser.userName} </p>
+                <p> {showWelcomeTime(time)}, {loggedInUser?.userName} </p>
 
                 <NavLink to={""} onClick={loggedInHandler}>Logout</NavLink>
             </div>

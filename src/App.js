@@ -1,27 +1,24 @@
 import "./index.css";
 import Main from "./components/main";
 import {useCallback, useState} from "react";
-import Login from "./components/Login";
+import Login from "./components/Login/Login";
 
 
 const App = () => {
-    const [isLoggedIn, setIsLoggedIn] = useState(false);
-    const [loggedInUser, setLoggedInUser] = useState({});
 
-    console.log(isLoggedIn);
+    const [isLoggedIn, setIsLoggedIn] = useState(false);
+
 
     const loggedInHandler = useCallback(() => {
         setIsLoggedIn(!isLoggedIn);
     }, [isLoggedIn]);
 
 
-    const loggedInUserHandler = useCallback((id) => {
-        setLoggedInUser(id);
-    }, [loggedInUser]);
-
-    return <>
-        {isLoggedIn ? <Main loggedInUser={loggedInUser} loggedInHandler={loggedInHandler}/> : <Login loggedInUserHandler={loggedInUserHandler} loggedInHandler={loggedInHandler}/>}
-    </>;
+    return (
+        <>
+            {isLoggedIn ? <Main loggedInHandler={loggedInHandler}/> :
+                <Login loggedInHandler={loggedInHandler}/>}
+        </>);
 };
 
 

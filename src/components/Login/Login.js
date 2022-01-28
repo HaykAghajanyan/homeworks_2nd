@@ -1,6 +1,12 @@
 import {useEffect, useState} from "react";
+import {useDispatch} from "react-redux/lib/hooks/useDispatch";
+import {setLoggedUser} from "../../Redux/Ducks/userDuck";
 
-export default function Login({loggedInHandler, loggedInUserHandler}) {
+export default function Login({loggedInHandler}) {
+
+    const dispatch = useDispatch();
+
+
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [credentials, setCredentials] = useState([]);
@@ -19,7 +25,9 @@ export default function Login({loggedInHandler, loggedInUserHandler}) {
             .filter(user => user.password === password);
 
         matchingUsers.length === 1 ? loggedInHandler() : console.log("Wrong user or pass"); // css կավելացնեմ  ․․․
-        loggedInUserHandler(matchingUsers[0]);
+
+
+        dispatch(setLoggedUser(matchingUsers[0]));
     };
 
 

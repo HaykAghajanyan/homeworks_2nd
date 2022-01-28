@@ -1,24 +1,50 @@
-import {useState} from "react";
-import {colors, target} from "../helpers/constants";
-
-export default function Settings({selectHandler}) {
-    const [selectedColor, setSelectedColor] = useState(colors.GREEN);
-    const [selectedAttr, setSelectedAttr] = useState(target.NAME);
+import {colors, target as types, target} from "../helpers/constants";
+import {useDispatch} from "react-redux/lib/hooks/useDispatch";
+import {changeColor, changeNameClass, changeTarget, changeTextClass} from "../Redux/Ducks/appDuck/appDuck";
+import {useSelector} from "react-redux/lib/exports";
 
 
-    return <div>
+export default function Settings({}) {
 
-        <select onChange={(e) => setSelectedColor(e.target.value)}>
-            <option> {colors.GREEN}</option>
-            <option> {colors.BLUE}</option>
-            <option> {colors.RED}</option>
-        </select>
+    const dispatch = useDispatch();
 
-        <select onChange={(e) => setSelectedAttr(e.target.value)}>
-            <option> {target.NAME}</option>
-            <option> {target.TEXT}</option>
-        </select>
-        <button onClick={() => selectHandler(selectedColor, selectedAttr)}> Change color</button>
+    const [targetValue, color] = useSelector(({AppDuck}) => [AppDuck.target, AppDuck.color]);
 
-    </div>;
+    const selectHandler = (color, target) => {
+        switch (target) {
+            case types.NAME:
+                dispatch(changeNameClass(color));
+                break;
+            case types.TEXT:
+                dispatch(changeTextClass(color));
+                break;
+            default:
+                console.log("default");
+
+
+        }
+    };
+
+
+    return (
+        <div>
+            <select onChange={(e) => {
+                dispatch(changeColor(e.target.value));
+            }}>
+                <option> {colors.GREEN}</option>
+                <option> {colors.BLUE}</option>
+                <option> {colors.RED}</option>
+            </select>
+
+            <select onChange={(e) => {
+                dispatch(changeTarget(e.target.value));
+            }}
+            >
+                <option> {target.NAME}</option>
+                <option> {target.TEXT}</option>
+            </select>
+
+            <button onClick={() => selectHandler(color, targetValue)}> Change color</button>
+
+        </div>);
 }

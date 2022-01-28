@@ -39,12 +39,20 @@ body {
 
 }
 
+.message:hover {
+    cursor: pointer;
+}
+
 .current-user {
     align-self: flex-end;
 }
 
 .current-user > div {
-    /*background-color: rgba(129, 134, 152, 0.32);*/
+    background-color: rgb(9 106 217);
+    color: white;
+    padding: 0.5em;
+
+
 }
 
 
@@ -56,24 +64,26 @@ body {
 
 .text {
     border-radius: 10px;
-    background-color: rgba(0, 0, 255, 0.38);
-    padding: 0.5em;
+    background-color: #E4E6EB;
     text-align: center;
+    color: white;
+
 
 }
 
 .Green {
-    background-color: chartreuse;
+    color: chartreuse;
+
 }
 
 .Blue {
-    background-color: blue;
-    color: white;
+    color: blue;
+
 }
 
 .Red {
-    background-color: red;
-    color: white;
+    color: red;
+
 }
 
 .login {
@@ -92,4 +102,43 @@ body {
     float: right;
 }
 
+.Black {
+    color: black;
+}
 
+.last-message {
+    height: 5em;
+}
+
+
+.new-message input {
+    width: 60%;
+    height: 36px;
+    border-radius: 20px;
+    padding-left: 0.5em;
+    font-size: 16px;
+    transition: 0.4s;
+
+
+}
+
+.new-message input:focus {
+    width: 100%;
+    transition: 0.4s;
+}
+
+
+.input-send {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px
+
+}
+
+.input-send img {
+    cursor: pointer;
+    width: 30px;
+    height: 27px
+
+}
