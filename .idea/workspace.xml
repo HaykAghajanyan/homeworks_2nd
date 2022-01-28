@@ -3,11 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="79cbc99a-6b85-4785-ae7d-276f7e6fc250" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Redux/Ducks/appDuck/appDuck.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Redux/Ducks/appDuck/appDuck.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/main.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/messages.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/messages.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/newMessage.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/newMessage.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/index.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -75,7 +71,8 @@
       <updated>1643264645896</updated>
       <workItem from="1643264647705" duration="22682000" />
       <workItem from="1643356511026" duration="1903000" />
-      <workItem from="1643375858524" duration="14267000" />
+      <workItem from="1643375858524" duration="15055000" />
+      <workItem from="1643401416373" duration="3206000" />
     </task>
     <servers />
   </component>

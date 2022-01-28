@@ -4,6 +4,9 @@ import {useCallback, useEffect, useRef, useState} from "react";
 import {useDispatch} from "react-redux/lib/hooks/useDispatch";
 import {deleteMessage} from "../Redux/Ducks/appDuck/appDuck";
 
+const deleteBtnURL = "/assets/img/delete.png";
+const editBtnURL = "/assets/img/editing.png";
+
 
 export default function Messages() {
     const endMessageRef = useRef(null);
@@ -47,10 +50,12 @@ export default function Messages() {
                                  </span>
 
                         <div className={`message-text text ${AppDuck.textClass}`}><p> {text} </p>
-                            <div className={"edit-delete-buttons"}>
-                                <button id={"deleteMessage"}>e</button>
-                                <button id={"deleteMessage"} onClick={(e) => deleteMessageHandler(idx, name)}>x</button>
-                            </div>
+                            {(name === currentUser.userName) && (<div className={"edit-delete-buttons"}>
+                                <img id={"deleteMessage"} src={editBtnURL}/>
+                                <img id={"deleteMessage"} onClick={(e) => deleteMessageHandler(idx, name)}
+                                     src={deleteBtnURL}/>
+
+                            </div>)}
                         </div>
                     </div>
                 ))}
@@ -58,9 +63,9 @@ export default function Messages() {
 
                 <NewMessage newMessageListener={newMessageListener}/>
 
+                <div className={"last-message"} ref={endMessageRef}/>
             </div>
 
-            <div className={"last-message"} ref={endMessageRef}/>
         </>
     );
 }

@@ -40,6 +40,7 @@ body {
 }
 
 #deleteMessage {
+    display: none;
     width: 20px;
     margin: 3px;
     align-self: center;
@@ -49,7 +50,7 @@ body {
     cursor: pointer;
 }
 
-.edit-delete-buttons{
+.edit-delete-buttons {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -65,10 +66,12 @@ body {
 .message-text:hover {
     transition: 0.5s;
     /*width: 250px;*/
+    /*zoom: 50%;*/
+    transform: scale(1.05);
 }
 
-.message-text:hover + #deleteMessage {
-    cursor: pointer;
+.message-text:hover #deleteMessage {
+
     display: inline;
 }
 
@@ -87,9 +90,13 @@ body {
     display: flex;
     flex-direction: column;
     max-width: 400px;
+    border: 1px solid black;
+    margin-left: 2em;
+    overflow-y: scroll;
+    height: 90vh;
+    transition: 1s;
+
 }
-
-
 
 
 .text {
