@@ -1,7 +1,15 @@
 import React from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import {NavLink, Outlet} from "react-router-dom";
+import {useSelector} from "react-redux";
 
 function Layout() {
+
+  const user = useSelector( state => state.userDuck.user );
+
+  const loginMenu = <li className="nav-item"><NavLink to="/login" className="nav-link">Login</NavLink></li>
+  const registerMenu = <li className="nav-item"><NavLink to="/register" className="nav-link">Register</NavLink></li>
+  const logoutMenu = <li className="nav-item"><NavLink to="/logout" onClick={() => window.location.assign('/') }className="nav-link">Logout</NavLink></li>
+
   return (
     <React.Fragment>
       <header>
@@ -18,12 +26,9 @@ function Layout() {
               <li className="nav-item">
                 <NavLink to="/filters" className="nav-link">Filters</NavLink>
               </li>
-              <li className="nav-item">
-                <NavLink to="/login" className="nav-link">Login</NavLink>
-              </li>
-              <li className="nav-item">
-                <NavLink to="/register" className="nav-link">Register</NavLink>
-              </li>
+              { user.username ? '' : loginMenu }
+              { user.username ? '' : registerMenu }
+              { user.username ? logoutMenu : '' }
             </ul>
           </div>
         </nav>

@@ -3,6 +3,7 @@ const ADD_USER = 'user/ADD_USER';
 const LOGIN_USER = 'user/LOGIN_USER';
 
 export const addUser = (payload) => ({type: ADD_USER, payload});
+export const loginUser = (payload) => ({type: LOGIN_USER, payload});
 
 const initialState = {
     user: {
@@ -20,7 +21,7 @@ const userDuck = ( state = initialState, {type, payload}) => {
         case ADD_USER: 
             return {
                 ...state,
-                users: payload
+                users: [...state.users, payload]
             }
         case LOGIN_USER: 
             return {
