@@ -9,6 +9,7 @@ function Layout() {
   const loginMenu = <li className="nav-item"><NavLink to="/login" className="nav-link">Login</NavLink></li>
   const registerMenu = <li className="nav-item"><NavLink to="/register" className="nav-link">Register</NavLink></li>
   const logoutMenu = <li className="nav-item"><NavLink to="/logout" onClick={() => window.location.assign('/') }className="nav-link">Logout</NavLink></li>
+  const currentUser = <li className="nav-item user-info"><span className="nav-link">{user.username}</span></li>
 
   return (
     <React.Fragment>
@@ -26,9 +27,10 @@ function Layout() {
               <li className="nav-item">
                 <NavLink to="/filters" className="nav-link">Filters</NavLink>
               </li>
-              { user.username ? '' : loginMenu }
-              { user.username ? '' : registerMenu }
+              { !user.username ? loginMenu : '' }
+              { !user.username ? registerMenu: '' }
               { user.username ? logoutMenu : '' }
+              { user.username ? currentUser : ''}
             </ul>
           </div>
         </nav>
