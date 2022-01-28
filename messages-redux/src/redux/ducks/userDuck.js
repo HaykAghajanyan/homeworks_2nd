@@ -1,15 +1,16 @@
 
-
 const ADD_USER = 'user/ADD_USER';
+const LOGIN_USER = 'user/LOGIN_USER';
 
-const addUser = (payload) => ({type: ADD_USER, payload});
+export const addUser = (payload) => ({type: ADD_USER, payload});
 
 const initialState = {
     user: {
         username: '',
         email: '',
         password: ''
-    }
+    },
+    users: [],
 }
 
 const userDuck = ( state = initialState, {type, payload}) => { 
@@ -19,9 +20,17 @@ const userDuck = ( state = initialState, {type, payload}) => {
         case ADD_USER: 
             return {
                 ...state,
-                user: payload
+                users: payload
             }
-
+        case LOGIN_USER: 
+            return {
+                ...state,
+                user: ( state.users.find( user => (user.username === payload.username && user.password === payload.password ) ) || state.user )
+            }
+        default:
+            return state;
     }
 
 }
+
+export default userDuck;

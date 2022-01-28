@@ -1,7 +1,11 @@
 import React from 'react';
+import {useDispatch} from "react-redux";
+import {addUser} from '../redux/ducks/userDuck';
 import {useForm} from 'react-hook-form'
 
 function Register() {
+
+  const dispatch = useDispatch();
 
   const defaultValues = {
     username: '',
@@ -11,6 +15,7 @@ function Register() {
 
   const { register, handleSubmit, formState, formState: { errors, submitCount }, watch } = useForm({defaultValues:defaultValues});
   const onSubmit = data => {
+    dispatch( addUser(data) );
     console.log(data);
   }
 
