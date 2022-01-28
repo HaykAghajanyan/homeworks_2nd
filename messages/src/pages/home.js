@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-const Home=({colors},{text})=>{
+const Home=({colors,text})=>{
  
     const [users, setUsers] = useState()
 
@@ -20,7 +20,7 @@ const Home=({colors},{text})=>{
             <div key={item.id} className="item" >
               
                <h3> Date:{item.date}</h3>
-               <h3 style={{ color:colors}}> {text}Name:{item.name}</h3>
+               <h3 style={{ color:text?colors:"black"}}>Name:{item.name}</h3>
                <h3 style={{color:colors}}>Text:{item.text}</h3>
              </div>)}
     </div>)

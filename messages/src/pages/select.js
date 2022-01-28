@@ -1,4 +1,4 @@
-const Select=({selected},{selectText})=>{
+const Select=({selected,selectText})=>{
     return(<div>
         Select
         <select onChange={(e)=> selected(e.target.value)} >
