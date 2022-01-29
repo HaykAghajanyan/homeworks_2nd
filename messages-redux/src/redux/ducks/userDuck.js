@@ -6,12 +6,11 @@ export const addUser = (payload) => ({type: ADD_USER, payload});
 export const loginUser = (payload) => ({type: LOGIN_USER, payload});
 
 const initialState = {
-    user: {
-        username: '',
-        email: '',
-        password: ''
-    },
-    users: [],
+    user: { username: '', email: '', password: '' },
+    users: [
+        { username: 'Hayk', email: 'hayk@gmail.com', password: '1234' },
+        { username: 'Alex', email: 'alex@gmail.com', password: '1234' }
+    ],
 }
 
 const userDuck = ( state = initialState, {type, payload}) => { 

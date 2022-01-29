@@ -164,3 +164,13 @@ header .user-info .nav-link{
   color: #0d6efd;
   margin-right: 10px;
 }
+
+.sep{
+  margin: 5px auto 20px;
+  padding: 1px;
+}
+
+.reply h5{
+  margin-top: 20px;
+  color:#666;
+}

@@ -24,6 +24,8 @@ function Reply() {
     }
 
     return <div className="reply">
+            <h5>Leave a Reply</h5>
+            <hr className="sep" />
             <form onSubmit={ handleSubmit( onSubmit ) }>
                 <div className="form-group">
                     <textarea {...register("text", {required: "This field is required."})} placeholder="Message text..." className={'form-control ' + (errors.text ? 'is-invalid' : '')}/>
