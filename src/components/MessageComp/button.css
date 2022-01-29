@@ -1,0 +1,27 @@
+.bttn {
+    color: black;
+    padding: 10px 20px;
+    text-align: center;
+    display: inline-block;
+    font-size: 14px;
+    margin: 10px 10px;
+    border-radius: 50px;
+    background-color: beige;
+
+}
+
+.bttn:hover {
+    border: 1px #4CAF50 solid;
+    background-color: #4CAF50;
+    color: white;
+}
+
+
+.reply, .edit , .delete{
+    display: inline-block;
+    margin-right: 5px;
+}
+/*.btn {*/
+/*    padding-left: 600px;*/
+/*}*/
+
