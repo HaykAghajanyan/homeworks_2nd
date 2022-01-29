@@ -16,14 +16,6 @@ export const changeTarget = (payload) => ({type: CHANGE_TARGET, payload});
 const initialState = {
     color: 'black',
     target: 'textColor',
-    message: {
-        id: 0,
-        name: '',
-        date: '',
-        text: '',
-        textColor: 'black',
-        nameColor: 'black'
-    },
     messages: [],
 }
 
