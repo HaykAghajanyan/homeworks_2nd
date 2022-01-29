@@ -74,5 +74,11 @@
       "textColor": "black",
       "nameColor": "black"
     }
+  ],
+  "users": [
+    {
+      "userName": "Hayk",
+      "password": "1234"
+    }
   ]
 }
