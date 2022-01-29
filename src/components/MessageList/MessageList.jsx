@@ -47,8 +47,8 @@ const MessageList = () => {
                 <h3 style={{color: message.nameColor}}>{message.name}</h3>
                 <p style={{color: message.textColor}}>{message.text}</p>
                 <p>{message.date}</p>
-                <button onClick={() => onDeleteHandler(message.id)}>X</button>
-                <button onClick={() => onChangeHandler(message.id)}>Change Message</button>
+                <button className="btn-login" onClick={() => onChangeHandler(message.id)}>Change Message</button>
+                <button className="btn-login" onClick={() => onDeleteHandler(message.id)}>X</button>
             </div>)}
         </div>);
 };
