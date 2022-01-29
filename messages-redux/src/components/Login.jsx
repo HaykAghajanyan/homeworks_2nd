@@ -43,7 +43,7 @@ function Login() {
         <div className="invalid-feedback">{errors.password?.message}</div>
       </div>
       <div className="form-group form-bottom">
-        <input type="submit" name="Register" value="Login" className="btn btn-primary"/>
+        <input type="submit" name="Login" value="Login" className="btn btn-primary"/>
       </div>
     </form>
   );

@@ -1,11 +1,13 @@
 
 const ADD_MESSAGE = 'message/ADD_MESSAGE';
+const SAVE_MESSAGE = 'message/SAVE_MESSAGE';
 const LOAD_MESSAGE = 'message/LOAD_MESSAGE';
 const REMOVE_MESSAGE = 'message/REMOVE_MESSAGE';
 const CHANGE_COLOR = 'message/CHANGE_COLOR'
 const CHANGE_TARGET = 'message/CHANGE_TARGET'
 
 export const addMessage = (payload) => ({type: ADD_MESSAGE, payload});
+export const saveMessage = (payload) => ({type: SAVE_MESSAGE, payload});
 export const loadMessage = (payload) => ({type: LOAD_MESSAGE, payload});
 export const removeMessage = (payload) => ({type: REMOVE_MESSAGE, payload});
 export const changeColor = (payload) => ({type: CHANGE_COLOR, payload});
@@ -39,6 +41,16 @@ const messageDuck = ( state = initialState, {type, payload}) => {
             return {
                 ...state,
                 messages: [...state.messages, payload]
+            }
+        case SAVE_MESSAGE: 
+            return {
+                ...state,
+                messages: [...state.messages.map( message => {
+                    if( message.id === payload.id ){
+                        message.text =  payload.text
+                    } 
+                    return message;
+                })]
             }
         case REMOVE_MESSAGE: 
             return {
