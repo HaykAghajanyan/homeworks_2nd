@@ -2,15 +2,15 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { GetMessages } from "../api"
 import { actionSetMessage } from "../store/actions"
-const getState = state => state
+const getState = state => state.message
 function useData() {
 	const dispatcher = useDispatch()
 	const state = useSelector(getState)
 	useEffect(() => {
-		if (!Array.isArray(state.messages) || state.messages.length === 0) {
+		if (state === null) {
 			dispatcher(actionSetMessage(GetMessages()))
 		}
-	}, [state.messages])
+	}, [state])
 	return state;
 }
 

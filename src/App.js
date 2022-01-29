@@ -5,7 +5,7 @@ import Settings from "./pages/Settings";
 import Header from "./components/Header"
 import Footer from "./components/Footer"
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import useSave from "./hooks/useSave";
+
 const darkTheme = createTheme({
 	palette: {
 		primary: {
@@ -25,8 +25,9 @@ const darkTheme = createTheme({
 		}
 	},
 });
+
 function App(props) {
-	useSave()
+
 	return (
 		<ThemeProvider theme={darkTheme}>
 			<Header />

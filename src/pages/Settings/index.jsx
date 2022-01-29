@@ -6,7 +6,7 @@ import Select from "../../components/uiKits/Select"
 import ColorPicker from "../../components/uiKits/ColorPicker";
 import { changeName, changeText } from "../../store/actions"
 import "./style.css"
-const getState = state => state
+const getState = state => state.message
 function Settings(props) {
 	const dispatch = useDispatch()
 	const { messages, colorSchem } = useSelector(getState)

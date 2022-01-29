@@ -1,5 +1,5 @@
 import { SetMessages, changeTextColorOfMessage, changeNameColorOfMessage } from "../constants/ReduxActionTypes"
-const defaultState = { messages: [], colorSchem: {} };
+const defaultState = null;
 const defaultAction = { type: null, payload: null };
 function colorReducer(state = defaultState, action = defaultAction) {
 	switch (action.type) {
