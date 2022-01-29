@@ -1,39 +1,24 @@
-import Header from "./components/Header";
-import {Route, Routes, useNavigate} from "react-router-dom";
-import Messages from "./components/Messages";
-import Configs from "./components/Configs";
-import {useCallback, useState} from "react";
-import PopupWrapper from "./components/PopupWrapper";
-import PopupMessage from "./components/PopupMessage";
+import React,{useState} from 'react';
+import Testomponent from './components/Testomponent'; 
+import Settings from './components/Settings';
+import {Routes,
+  Route,
+  Link,
+  Router} from 'react-router-dom'
+  
 
-const App = () => {
-    const [configs, setConfigs] = useState({})
-
-    const navigate = useNavigate()
-
-    const handleConfigs = useCallback((configsObj) => {
-        setConfigs(configsObj)
-    }, [])
-
-    const goBack = () => {
-        setTimeout(() => {
-            navigate('..')
-        }, 200)
-    }
-
-    return (
-        <>
-            <Header/>
-            <Routes>
-                <Route path='' element={<Messages configs={configs}/>}/>
-                <Route path='configs' element={<Configs handleConfigs={handleConfigs}/>}/>
-                <Route path=':id' element={
-                    <PopupWrapper onClose={goBack}>
-                        <PopupMessage/>
-                    </PopupWrapper>}/>
-            </Routes>
-        </>
-    );
+function App() {
+  const [color, setColor] = useState("")
+  const [user, setUser] = useState("")
+  return (
+    <div className="App">
+<Routes>
+<Route path="/" element={<Testomponent color={color} user={user}/> }/>
+<Route path="/settings" element={<Settings setColor={setColor} setUser={setUser} color={color} user={user}/>}/>
+</Routes>
+      
+    </div>
+  );
 }
 
 export default App;

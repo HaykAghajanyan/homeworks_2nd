@@ -1,17 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {BrowserRouter} from "react-router-dom";
-import App from './App';
-import './index.css';
-import MessagesProvider from "./contexts/messagesContext";
+import App from './App'
+import {
+    BrowserRouter as Router,
+  } from "react-router-dom";
+
+
 
 ReactDOM.render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <MessagesProvider>
-                <App/>
-            </MessagesProvider>
-        </BrowserRouter>
-    </React.StrictMode>,
-    document.getElementById('root')
-);
+<Router>
+    <App/>
+</Router>
+, document.getElementById("root"))  ;
