@@ -1,0 +1,26 @@
+textarea {
+    margin: 6px 19px;
+    width: 401px;
+    height: 100px;
+}
+
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 14px 21px;
+    margin: 6px 19px;
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    float: right;
+    display: block;
+}
+
+.innerDiv {
+    padding: 31px 0;
+}
+
+span {
+    padding: 20px;
+    font-size: 25px;
+}
