@@ -25,7 +25,7 @@ function Message({message}) {
             <div className="name" style={{color: message.nameColor}}>{message.name}</div>
             <div className="date">{message.date}</div>
             <div className="text" style={{color: message.textColor}}>{message.text}</div>
-            {user.username && buttons}
+            {user.username === message.name && buttons}
         </div>
         {edit && <Editor id={message.id} handleSave={handleSave} handleCancel={handleCancel} />}
       </>

@@ -152,3 +152,15 @@ header .user-info .nav-link{
 .form-bottom .btn{
   margin-top: 10px;
 }
+
+.users{
+  margin-top:20px;
+  padding-top: 20px;
+  border-top: 1px solid #ccc;
+  text-align: center;
+}
+
+.users strong{
+  color: #0d6efd;
+  margin-right: 10px;
+}

@@ -8,7 +8,7 @@ function Login() {
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const user = useSelector( state => state.userDuck.user );
+  const {user, users} = useSelector( state => state.userDuck );
   const defaultInputValues = { username: '', password: '' };
   const { register, handleSubmit, formState: {errors, isSubmitSuccessful} } = useForm({defaultValues: defaultInputValues});
   
@@ -44,6 +44,9 @@ function Login() {
       </div>
       <div className="form-group form-bottom">
         <input type="submit" name="Login" value="Login" className="btn btn-primary"/>
+      </div>
+      <div className="users">
+        Users in the Database: &nbsp; { users.map(user => <strong key={user.username}>{user.username}</strong>) }
       </div>
     </form>
   );
