@@ -39,11 +39,11 @@ header .navbar-brand{
 }
 
 header .user-info{
-  margin-left: 20px;
-  border-left: 5px solid #ccc;
+  margin-left: auto;
   padding-left: 20px;
   padding-right: 20px;
   background-color: #eee;
+  margin-right: 20px;
 }
 
 header .user-info .nav-link{
@@ -106,6 +106,10 @@ header .user-info .nav-link{
 
 .message .text{
   flex-grow: 1;
+}
+
+.message .actions button{
+  margin-right: 10px;
 }
 
 /* Forms */

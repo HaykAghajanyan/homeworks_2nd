@@ -1,24 +1,21 @@
-import React, {useEffect, useRef} from 'react';
+import React from 'react';
+import {useDispatch, useSelector} from "react-redux";
+import {changeColor, changeTarget} from "../redux/ducks/messageDuck";
 
-function Filters({messages, setColor, setElem, color, elem}) {
+function Filters() {
 
-    const colorRef = useRef();
-    const elemRef = useRef();
-
-    useEffect(() => {
-        colorRef.current.value = color;
-        elemRef.current.value = elem;
-    }, [messages, color, elem]);
+    const dispatch = useDispatch();
+    const {color, target} = useSelector(state => state.messageDuck);
 
     return (
         <React.Fragment>
             <div className='filters'>
-                <select ref={colorRef} onChange={ e => setColor(e.target.value) }>
+                <select value={color} onChange={ e =>  dispatch( changeColor(e.target.value) )  }>
                     <option value="black">Black</option>
                     <option value="red">Red</option>
                     <option value="green">Green</option>
                 </select>
-                <select ref={elemRef} onChange={ e => setElem(e.target.value) }>
+                <select value={target} onChange={ e => dispatch( changeTarget(e.target.value) ) }>
                     <option value="textColor">Text Color</option>
                     <option value="nameColor">Name Color</option>
                 </select>

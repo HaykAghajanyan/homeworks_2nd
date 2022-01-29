@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-
 import {
   Routes,
   Route
@@ -11,27 +9,15 @@ import Filters from "./components/Filters";
 import Login from "./components/Login";
 import Register from "./components/Register";
 
-import allMessages from './data/messages';
-
 
 function App() {
-
-  const [messages, setMessages] = useState(allMessages);
-  const [color, setColor] = useState('black');
-  const [elem, setElem] = useState('textColor');
-
-  useEffect(() => {
-    messages.map( message => message[elem] = color );
-    setMessages(messages);
-  }, [messages, color, elem]);
-  
   
   return (
     
         <Routes>
           <Route path="/" element={<Layout/>}>
-            <Route index element={<Home messages={messages} />}/>
-            <Route path="/filters" element={<Filters messages={messages} setColor={setColor} setElem={setElem} color={color} elem={elem} />}/>
+            <Route index element={<Home />}/>
+            <Route path="/filters" element={<Filters />}/>
             <Route path="/login" element={<Login />}/>
             <Route path="/register" element={<Register />}/>
           </Route>
