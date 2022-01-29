@@ -1,0 +1,66 @@
+.header {
+    border: 2px solid rgb(211, 211, 211);
+    border-radius: 10px;
+    background-color: blanchedalmond;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .headerButtons {
+    margin: 20px;
+    display: flex;
+  }
+  
+  .logIn {
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 7px;
+    margin: 10px;
+    text-decoration: none;
+  }
+  
+  .logIn a {
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  
+  .logIn:hover{
+    cursor: pointer;
+  }
+  
+  .logIn.active {
+    background-color: rgb(70, 70, 70);
+    color: blanchedalmond;
+  }
+
+  .please {
+    display: flex;
+    margin: 20px;
+  }
+  
+  .please a{
+    font-size: 30px;
+  }
+  
+  .navLink {
+    background-color: blanchedalmond;
+    text-decoration: none;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 7px;
+    margin: 10px;
+  }
+  
+  .navLink:hover{
+    transform: scale(105%);
+    cursor: pointer;
+  }
+  
+  .navLink.active{
+    background-color: rgb(70, 70, 70);
+    color: blanchedalmond;
+  }

@@ -1,0 +1,27 @@
+.messageSelectedItem{
+    display: grid;
+    margin-top: 10px;
+    border: 1px solid rgb(211, 211, 211);
+    padding: 10px;
+    border-radius: 5px;
+  }
+  
+  .messageSelectedItem:last-child {
+    display: grid;
+    grid-template-columns: 2fr 8fr;
+    margin: 20px auto
+  }
+
+  .goBack {
+    margin: 10px;
+    text-decoration: none;
+    font-size: 20px;
+    border: 1px solid black;
+    border-radius: 10px;
+    padding: 7px;
+    background-color: blanchedalmond;
+  }
+  
+  .goBack:hover {
+    cursor: pointer;
+  }

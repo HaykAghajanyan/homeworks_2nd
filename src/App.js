@@ -1,114 +1,83 @@
-import './App.css';
-import Messages from './components//Messages/Messages';
-import { Route, Routes } from 'react-router-dom';
-import Selectors from './components/Selectors/Selectors';
-import NavBar from './components/NavBar/NavBar';
-import React, { useState } from 'react';
+import React from "react";
+import Header from "./components/Header/Header";
+import { Route, Routes, useNavigate } from "react-router-dom";
+import Messages from "./components/Messages/Messages";
+import Configs from "./components/Configs/Configs";
+import { useCallback, useState, useContext, useEffect } from "react";
+import PopupWrapper from "./components/PopupWrapper/PopupWrapper";
+import PopupMessage from "./components/PopupMessage/PopupMessage";
+import LogIn from "./components/LogIn/Login";
+import axios from "axios";
 
-const messages = [
-  {
-    "id": "1",
-    "name": "Alex",
-    "date": "17/05/2021",
-    "text": "Hello Hayk",
-    "textColor": "black",
-    "nameColor": "black"
-  },
-  {
-    "id": "2",
-    "name": "Hayk",
-    "date": "21/03/2020",
-    "text": "I`ll be late today",
-    "textColor": "black",
-    "nameColor": "black"
-  },
-  {
-    "id": "3",
-    "name": "Karen",
-    "date": "13/09/2021",
-    "text": "Hey man, when can you come to hang over? I`ll be free today",
-    "textColor": "black",
-    "nameColor": "black"
-  },
-  {
-    "id": "4",
-    "name": "Alex",
-    "date": "13/09/2021",
-    "text": "Hi, maybe I`ll be free after work today. I`ll call you",
-    "textColor": "black",
-    "nameColor": "black"
+const MessagesContext = React.createContext(null)
 
-  },
-  {
-    "id": "5",
-    "name": "Hayk",
-    "date": "21/03/2020",
-    "text": "Yesterday I did great job with my application, you can check it out on my page",
-    "textColor": "black",
-    "nameColor": "black"
-  },
-  {
-    "id": "6",
-    "name": "Karen",
-    "date": "1/01/2022",
-    "text": "Merry Christmas and a happy New Year",
-    "textColor": "black",
-    "nameColor": "black"
-  },
-  {
-    "id": "7",
-    "name": "Alex",
-    "date": "17/05/2021",
-    "text": "My car is in service center now, I can`t visit you",
-    "textColor": "black",
-    "nameColor": "black"
+const App = () => {
+    const [configs, setConfigs] = useState({})
+    const [isLoggedIn, setIsLoggedIn] = useState(false)
+    const [user, setUser] = useState('')
+    const [messages, setMessages] = useState([])
+    const [users, setUsers] = useState([])
 
-  },
-  {
-    "id": "8",
-    "name": "Hayk",
-    "date": "21/03/2020",
-    "text": "So, what is up with that job?",
-    "textColor": "black",
-    "nameColor": "black"
-  },
-  {
-    "id": "9",
-    "name": "Karen",
-    "date": "13/07/2021",
-    "text": "Have you ever thought about living in another country?",
-    "textColor": "black",
-    "nameColor": "black"
-  }
-]
+    const navigate = useNavigate()
 
-function App() {
+    useEffect(() => {
+        async function fetchData() {
+            const messagesData = await axios.get('https://61b8b44138f69a0017ce5cd7.mockapi.io/Memory_game')
+            const usersData = await axios.get('https://61b8b44138f69a0017ce5cd7.mockapi.io/orders')
+            setMessages(messagesData.data)
+            setUsers(usersData.data)
+        }
+        fetchData()
+    }, [])
 
-  const [color, setColor] = useState('')
- 
-  const textNameChange = (textName) => {
-    if(textName === "text") {
-      messages.map(obj => obj.textColor = color)
-      console.log(messages);
-    } else if(textName === "name"){
-      messages.map(obj => obj.nameColor = color)
-      console.log(messages);
+    const handleConfigs = useCallback((configsObj) => {
+        setConfigs(configsObj)
+    }, [])
+
+    const goBack = () => {
+        setTimeout(() => {
+            navigate('..')
+        }, 200)
     }
-  }
-  
-  const colorChange = (colorChange) => {
-    setColor(colorChange)
-  }
 
-  return (
-    <div className="app-wrapper">
-      <NavBar />
-      <Routes>
-        <Route path='' element={<Messages messages={messages} />} />
-        <Route path='selectors' element={<Selectors colorChange={colorChange} textNameChange={textNameChange} />} />
-      </Routes>
-    </div>
-  );
+    return (
+        <MessagesContext.Provider value={{ messages, users, setMessages, setUsers }}>
+            <div className="app-wrapper">
+                <Header isLoggedIn={isLoggedIn}
+                    setIsLoggedIn={setIsLoggedIn}
+                    setUser={setUser} />
+                {
+                    !isLoggedIn ?
+                        <LogIn
+                            isLoggedIn={isLoggedIn}
+                            setIsLoggedIn={setIsLoggedIn}
+                            setUser={setUser}
+                            user={user}
+                        /> :
+                        <>
+
+                            <Routes>
+                                <Route
+                                    path='message'
+                                    element={<Messages configs={configs} user={user} />} />
+                                <Route
+                                    path='configs'
+                                    element={<Configs handleConfigs={handleConfigs} />} />
+                                <Route
+                                    path='' />
+                                <Route path=':id' element={
+                                    <PopupWrapper onClose={goBack} user={user}>
+                                        <PopupMessage />
+                                    </PopupWrapper>} />
+                            </Routes>
+                        </>
+                }
+
+            </div>
+        </MessagesContext.Provider>
+    );
 }
+
+export const useMessagesData = () => useContext(MessagesContext)
 
 export default App;

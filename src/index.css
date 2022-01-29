@@ -3,13 +3,18 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(214, 214, 207);
-}
+} 
 
 *{
   font-size: 15px;
   font-family: 'Montserrat', sans-serif;
+  text-decoration: none;
 }
 
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
 
 .app-wrapper {
   background-color: white;
@@ -20,70 +25,16 @@ body {
   padding: 20px;
 }
 
-.select-page{
-  margin: 10px;
+.configs {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 30px;
 }
 
-select{
-  margin: 10px;
-}
-
-.message {
-  display: grid;
-  grid-template-columns: 2fr 8fr 2fr;
-  margin-top: 10px;
-  border: 1px solid rgb(211, 211, 211);
+.select {
   padding: 10px;
-  border-radius: 5px;
-}
-
-.message:hover{
-  box-shadow: 0px 20px 30px rgba(0,0,0,0.03);
-  transform: translateY(-3px) scale(102%);
-}
-
-.nav-bar{
-  border: 2px solid rgb(211, 211, 211);
-  border-radius: 5px;
-  background-color: blanchedalmond;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.page-selector{
-  margin: 10px;
-}
-
-.page-selector:hover{
-  cursor: pointer;
-}
-
-.about {
-  display: grid;
-  grid-template-columns: 2fr 8fr 2fr;
-  margin-top: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 20px;
-}
-
-.page-selector{
-  text-decoration: none;
   font-size: 20px;
-  border: 1px solid black;
-  border-radius: 10px;
-  padding: 7px;
-}
-
-.page-selector:hover{
-  transform: scale(105%);
-}
-
-.page-selector.active{
-  background-color: rgb(70, 70, 70);
-  color: blanchedalmond;
+  margin-right: 10px;
+  margin-left: 10px;
 }
