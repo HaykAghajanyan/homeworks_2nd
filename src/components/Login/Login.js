@@ -2,6 +2,9 @@ import {useEffect, useState} from "react";
 import {useDispatch} from "react-redux/lib/hooks/useDispatch";
 import {setLoggedUser} from "../../Redux/Ducks/userDuck";
 
+const usersImgURL = "/assets/img/users.png";
+
+
 export default function Login({loggedInHandler}) {
 
     const dispatch = useDispatch();
@@ -26,21 +29,29 @@ export default function Login({loggedInHandler}) {
 
         matchingUsers.length === 1 ? loggedInHandler() : console.log("Wrong user or pass"); // css կավելացնեմ  ․․․
 
-
         dispatch(setLoggedUser(matchingUsers[0]));
     };
 
 
-    return <>
+    return (
+        <div className={"login-wrapper"}>
+            <img src={usersImgURL}/>
+            <form className={"login"}>
 
-        <form className={"login"}>
-            <input value={userName} onChange={e => setUserName(e.target.value)} type={"text"} autoComplete={"username"}
-                   placeholder={"username..."}/>
-            <input onChange={e => setPassword(e.target.value)} type={"password"} autoComplete={"current-password"}
-                   placeholder={"password..."}/>
+                <input
+                    id={"username-input"}
+                    value={userName} onChange={e => setUserName(e.target.value)} type={"text"}
+                    autoComplete={"username"}
+                    placeholder={"username..."}/>
 
-        </form>
-        <button onClick={validateCredentials}> Log in</button>
 
-    </>;
+                <input
+                    id={"password-input"}
+                    onChange={e => setPassword(e.target.value)} type={"password"} autoComplete={"current-password"}
+                       placeholder={"password..."}/>
+
+                <button onClick={validateCredentials}> Log in</button>
+            </form>
+
+        </div>);
 }

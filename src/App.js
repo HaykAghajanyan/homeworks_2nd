@@ -30,7 +30,7 @@ const App = () => {
     return (
         <>
             {isLoggedIn ? <Main loggedInHandler={loggedInHandler}/> :
-                <Login loggedInHandler={loggedInHandler}/>}
+                 <Login loggedInHandler={loggedInHandler}/>}
         </>);
 };
 

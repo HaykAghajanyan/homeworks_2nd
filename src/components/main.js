@@ -12,6 +12,7 @@ export default function Main({loggedInHandler}) {
         <Routes>
             <Route path={"/"} element={<Messages/>}/>
             <Route path={"/settings"} element={<Settings/>}/>
+            <Route path={"*"} element={<div> Error 404</div>}/> // temporary error handling. will fix
         </Routes>
 
 

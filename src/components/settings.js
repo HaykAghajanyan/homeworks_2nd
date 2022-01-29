@@ -28,9 +28,7 @@ export default function Settings({}) {
 
     return (
         <div>
-            <select onChange={(e) => {
-                dispatch(changeColor(e.target.value));
-            }}>
+            <select onChange={(e) => dispatch(changeColor(e.target.value))}>
                 <option> {colors.GREEN}</option>
                 <option> {colors.BLUE}</option>
                 <option> {colors.RED}</option>

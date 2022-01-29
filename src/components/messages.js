@@ -36,6 +36,11 @@ export default function Messages() {
         (name === currentUserName) && dispatch(deleteMessage(idx));
     };
 
+    // եսիմ
+    // const editMessageHandler = (idx, newText) => {
+    //
+    // }
+
 
     return (
         <>
@@ -51,7 +56,7 @@ export default function Messages() {
 
                         <div className={`message-text text ${AppDuck.textClass}`}><p> {text} </p>
                             {(name === currentUser.userName) && (<div className={"edit-delete-buttons"}>
-                                <img id={"deleteMessage"} src={editBtnURL}/>
+                                {/*<img id={""} src={editBtnURL}/>*/}
                                 <img id={"deleteMessage"} onClick={(e) => deleteMessageHandler(idx, name)}
                                      src={deleteBtnURL}/>
 
