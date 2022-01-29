@@ -38,9 +38,10 @@ const messageDuck = ( state = initialState, {type, payload}) => {
     switch(type) {
 
         case ADD_MESSAGE: 
+            const nextId = Math.max(...state.messages.map( m => m.id ) ) + 1;
             return {
                 ...state,
-                messages: [...state.messages, payload]
+                messages: [...state.messages, {...payload, id:nextId }]
             }
         case SAVE_MESSAGE: 
             return {
