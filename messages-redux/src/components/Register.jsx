@@ -29,6 +29,8 @@ function Register() {
 
   return (
     <form onSubmit={ handleSubmit( onSubmit ) }>
+      <h5>Register</h5>
+      <hr />
       <div style={{fontWeight:'bold', textAlign: 'center'}}>{formMessage}</div>
       <div className="form-group">
         <input type="text" {...register("username", {required: "This field is required.", maxLength: 100})} placeholder="Username" className={'form-control ' + (errors.username ? 'is-invalid' : '')}/>

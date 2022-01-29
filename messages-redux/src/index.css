@@ -165,12 +165,16 @@ header .user-info .nav-link{
   margin-right: 10px;
 }
 
-.sep{
-  margin: 5px auto 20px;
-  padding: 1px;
+h5{
+  margin: 40px auto 20px !important;
+  color:#666;
+  text-align: center;
 }
 
-.reply h5{
-  margin-top: 20px;
-  color:#666;
+hr{
+  margin-bottom: 30px !important;
+}
+
+hr.sep{
+  margin: 5px auto 20px!important;
 }

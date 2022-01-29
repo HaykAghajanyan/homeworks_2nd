@@ -33,6 +33,8 @@ function Login() {
 
   return (
     <form onSubmit={ handleSubmit( onSubmit ) }>
+      <h5>Login</h5>
+      <hr />
       <div style={{fontWeight:'bold', textAlign: 'center'}}>{formMessage}</div>
       <div className="form-group">
         <input type="text" {...register("username", {required: "This field is required.", maxLength: 100})} placeholder="Username" className={'form-control ' + (errors.username ? 'is-invalid' : '')}/>
