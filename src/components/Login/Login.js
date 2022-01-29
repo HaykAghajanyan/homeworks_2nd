@@ -3,6 +3,7 @@ import {useDispatch} from "react-redux/lib/hooks/useDispatch";
 import {setLoggedUser} from "../../Redux/Ducks/userDuck";
 
 const usersImgURL = "/assets/img/users.png";
+const loginImgURL = "/assets/img/enter.png";
 
 
 export default function Login({loggedInHandler}) {
@@ -32,6 +33,11 @@ export default function Login({loggedInHandler}) {
         dispatch(setLoggedUser(matchingUsers[0]));
     };
 
+    const signUpHandler = () => {
+
+    }
+
+
 
     return (
         <div className={"login-wrapper"}>
@@ -42,15 +48,21 @@ export default function Login({loggedInHandler}) {
                     id={"username-input"}
                     value={userName} onChange={e => setUserName(e.target.value)} type={"text"}
                     autoComplete={"username"}
-                    placeholder={"username..."}/>
+                    placeholder={"username"}/>
 
 
                 <input
                     id={"password-input"}
-                    onChange={e => setPassword(e.target.value)} type={"password"} autoComplete={"current-password"}
-                       placeholder={"password..."}/>
+                    onChange={e => setPassword(e.target.value)}
+                    type={"password"}
+                    autoComplete={"current-password"}
+                    placeholder={"password"}/>
 
-                <button onClick={validateCredentials}> Log in</button>
+                <span className={"log-buttons"}>
+                <button className={"sign-btn"} id={"loginBtn"} onClick={validateCredentials}> Log in</button>
+                <button className={"sign-btn"} id={"signUpBtn"}> Sign up</button>
+            </span>
+
             </form>
 
         </div>);

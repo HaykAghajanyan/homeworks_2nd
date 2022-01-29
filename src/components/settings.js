@@ -27,7 +27,7 @@ export default function Settings({}) {
 
 
     return (
-        <div>
+        <div className={"settings"}>
             <select onChange={(e) => dispatch(changeColor(e.target.value))}>
                 <option> {colors.GREEN}</option>
                 <option> {colors.BLUE}</option>

@@ -247,38 +247,86 @@ body {
 
 }
 
-.login > button {
-    width: 93%;
-    padding: 10px;
-    padding-left: 24px;
+.sign-btn {
+    text-align: left;
+    width: 52%;
+    padding: 5px;
     font-weight: 700;
+    /*background: white url("/public/assets/img/add-user.png") no-repeat right;*/
+    cursor: pointer;
+    background-position: 92% center;
 }
+
+#loginBtn {
+    background: white url("/public/assets/img/enter.png") no-repeat right;
+    background-size: 20px;
+    background-position: 92% center;
+    background-color: white;
+}
+
+#signUpBtn {
+    background: white url("/public/assets/img/add-user.png") no-repeat right;
+    background-size: 20px;
+    background-position: 92% center;
+    /*background-color: green;*/
+}
+
 
 .login-wrapper img {
     width: 30px;
     height: 30px;
-    background-color: rgb(82, 97, 124);
+    background-color: rgb(219 221 224);
     grid-column-start: 3;
     grid-row-start: 1;
     justify-content: center;
     align-items: center;
     align-self: self-end;
     justify-self: center;
-    padding: 15px 15px;
+    padding: 8px 22px;
     border-radius: 50px;
 }
 
 
 #username-input {
-    background: white  url("/public/assets/img/user.png") left no-repeat;
+    background: white url("/public/assets/img/user.png") left no-repeat;
     background-position: 5px center;
     background-size: 20px;
     padding-right: 20px;
 }
 
+/*#username-input:-webkit-autofill,*/
+/*#username-input:-webkit-autofill:hover,*/
+/*#username-input:-webkit-autofill:focus,*/
+/*#username-input:-webkit-autofill:active {*/
+/*    -webkit-box-shadow: 0 0 0 30px transparent inset !important;*/
+/*}*/
+
 #password-input {
-    background: white  url("/public/assets/img/padlock.png") left no-repeat;
+    background: white url("/public/assets/img/padlock.png") left no-repeat;
     background-position: 5px center;
     padding-right: 20px;
     background-size: 20px;
 }
+
+
+.settings {
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.settings > select {
+    height: 2.5em;
+}
+
+
+.log-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 110%;
+
+}
+
