@@ -1,45 +1,46 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './App.css';
-import {Route, Routes, Navigate} from 'react-router-dom';
+import {Navigate, Route, Routes} from 'react-router-dom';
 import MessageList from "./components/MessageList/MessageList";
-import ChangeMessage from "./components/ChangeMessage/ChangeMessage";
+import ChangeColor from "./components/ChangeColor/ChangeColor";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
+import Auth from "./components/Auth/Auth";
+import ChangeMessage from "./components/ChangeMessage/ChangeMessage";
+import NewMessage from "./components/NewMessage/NewMessage";
 
 function App() {
-    let [messages, setMessages] = useState();
-    useEffect(() => {
-        fetch('messages.json', {
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            }
-        })
-            .then(res => res.json())
-            .then(json => {
-                setMessages(json);
-            });
-    }, []);
-    const changeColorHandler = (field, color = 'black') => {
-        let changedColors = messages?.map((message) => {
-            message[`${field}Color`] = color;
-            return message;
-        });
-        setMessages(changedColors);
-    };
-    return (<div className="App">
-        <Navbar/>
 
-        <main>
-            <Routes>
-                <Route path="/list" element={<MessageList messages={messages}/>}/>
-                <Route path="/change" element={<ChangeMessage changeColorHandler={changeColorHandler}/>}/>
-                <Route path="*" element={<Navigate to="/list"/>}/>
-            </Routes>
-        </main>
+    return (
+        <div className="App">
+            <Navbar/>
 
-        <Footer/>
-    </div>);
+            <main>
+                <Routes>
+                    {
+                        <>
+                            store.auth ?
+                            <>
+                                <Route path="/list" element={<MessageList/>}/>
+                                <Route path="/change" element={<ChangeColor/>}/>
+                                <Route path="/new" element={<NewMessage />}/>
+                                <Route path="/message/:id" element={<ChangeMessage />}/>
+                            </>
+                            :
+                            <>
+                                <Route path="/login" element={<Auth text="Login" to="Registration"/>}/>
+                                <Route path="/registration" element={<Auth text="Registration" to="Login"/>}/>
+                                <Route path="*" element={<Navigate to="/login"/>}/>
+                            </>
+                        </>
+                    }
+
+
+                </Routes>
+            </main>
+
+            <Footer/>
+        </div>);
 }
 
 export default App;

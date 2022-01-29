@@ -18,3 +18,19 @@ header {
 .text-big-size {
     font-size: 30px;
 }
+
+.text-black{
+    color: black;
+}
+
+.on-hover:hover{
+    color: #cdcdcd;
+}
+
+.no-active:active{
+    color: black;
+}
+
+.pointer {
+    cursor: pointer;
+}

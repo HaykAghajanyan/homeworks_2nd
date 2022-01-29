@@ -1,0 +1,10 @@
+select {
+    min-height: 25px;
+    min-width: 250px;
+
+    font-size: 20px;
+}
+
+select + select {
+    margin-left: 20px;
+}

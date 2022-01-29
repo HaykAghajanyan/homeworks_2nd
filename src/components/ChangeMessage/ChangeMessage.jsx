@@ -1,29 +1,60 @@
-import React, { useEffect, useState } from 'react';
-import colors from './colors';
-import './changemessage.css';
+import React, {useContext, useEffect, useState} from 'react'
+import {useNavigate, useParams} from "react-router-dom";
+import {StoreContext} from "../../index";
 
-const ChangeMessage = ({ changeColorHandler }) => {
-    const [color, setColor] = useState('black');
-    const [field, setField] = useState('text');
-    const onChangeColor = (event) => {
-        event.target.style.color = event.target.value;
-        setColor(event.target.value);
-    };
-    const onChangeField = (event) => {
-        setField(event.target.value);
-    };
+import './changemessage.css'
+
+const ChangeMessage = () => {
+    const {id} = useParams()
+    const store = useContext(StoreContext)
+    const navigate = useNavigate()
+
+    const [text, setText] = useState("")
+    const [message, setMessage] = useState({})
+
     useEffect(() => {
-        changeColorHandler(field, color);
-    }, [color, field]);
-    return (<div>
-            <select onChange={onChangeColor}>
-                {colors.map((color, index) => <option style={{ color: color }} key={index}>{color}</option>)}
-            </select>
+        console.log(store.messages)
+        let message = store.messages.find(message => message.id === id)
+        setMessage(message)
+        setText(message.text)
+    }, [])
 
-            <select onChange={onChangeField}>
-                <option>text</option>
-                <option>name</option>
-            </select>
-        </div>);
-};
-export default ChangeMessage;
+    const onTextChangeHandler = (e) => {
+        setText(e.target.value)
+    }
+
+    const onSaveHandler = () => {
+        store.messages = store.messages.map(message => {
+            if(message.id === id){
+                message.text = text
+            }
+
+            return message
+        })
+        navigate("/list")
+    }
+
+
+    return (
+        <div className="container">
+            <span className="message-prop">Name: {message.name}</span>
+            <span className="message-prop">Date: {message.date}</span>
+            <label htmlFor="text" className="message-prop">Text:
+                <input
+                    name="text"
+                    className="message-prop"
+                    type="text"
+                    value={text}
+                    onChange={onTextChangeHandler}/>
+            </label>
+            <button
+                className="btn-save"
+                onClick={onSaveHandler}
+            >
+                Save
+            </button>
+        </div>
+    )
+}
+
+export default ChangeMessage
