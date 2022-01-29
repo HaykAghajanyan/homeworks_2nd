@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {useDispatch} from "react-redux/lib/hooks/useDispatch";
-import {setLoggedUser} from "../../Redux/Ducks/userDuck";
+import {addNewUser, setCredentials, setLoggedUser} from "../../Redux/Ducks/userDuck";
+import {useSelector} from "react-redux/lib/hooks/useSelector";
 
 const usersImgURL = "/assets/img/users.png";
 const loginImgURL = "/assets/img/enter.png";
@@ -9,34 +10,45 @@ const loginImgURL = "/assets/img/enter.png";
 export default function Login({loggedInHandler}) {
 
     const dispatch = useDispatch();
+    const credentials = useSelector(({UserDuck}) => UserDuck.credentials);
 
-
-    const [userName, setUserName] = useState("");
-    const [password, setPassword] = useState("");
-    const [credentials, setCredentials] = useState([]);
+    const [userNameVal, setUserName] = useState("");
+    const [passwordVal, setPassword] = useState("");
 
 
     useEffect(() => {
         fetch("./data/userCredentials.json")
             .then(res => res.json())
-            .then(res => setCredentials(res));
+            .then(res => dispatch(setCredentials(res)));
     }, []);
 
 
     const validateCredentials = () => {
+
         const matchingUsers = credentials
-            .filter((user) => user.userName === userName)
-            .filter(user => user.password === password);
+            .filter((user) => user.userName === userNameVal)
+            .filter(user => user.password === passwordVal);
 
         matchingUsers.length === 1 ? loggedInHandler() : console.log("Wrong user or pass"); // css կավելացնեմ  ․․․
 
         dispatch(setLoggedUser(matchingUsers[0]));
     };
 
-    const signUpHandler = () => {
+    const signUpHandler = (e) => {
+        e.preventDefault();
+        const isUserNameBusy = credentials.some(({userName}) => userName === userNameVal);
+        !isUserNameBusy ? dispatch(addNewUser({
+            isLoggedIn: false,
+            password: passwordVal,
+            userId: credentials.length + 1,
+            userName: userNameVal,
+        })) : console.log("userName is taken");
 
-    }
+        setPassword("");
+        setUserName("");
 
+
+    };
 
 
     return (
@@ -46,7 +58,7 @@ export default function Login({loggedInHandler}) {
 
                 <input
                     id={"username-input"}
-                    value={userName} onChange={e => setUserName(e.target.value)} type={"text"}
+                    value={userNameVal} onChange={e => setUserName(e.target.value)} type={"text"}
                     autoComplete={"username"}
                     placeholder={"username"}/>
 
@@ -60,7 +72,7 @@ export default function Login({loggedInHandler}) {
 
                 <span className={"log-buttons"}>
                 <button className={"sign-btn"} id={"loginBtn"} onClick={validateCredentials}> Log in</button>
-                <button className={"sign-btn"} id={"signUpBtn"}> Sign up</button>
+                <button className={"sign-btn"} id={"signUpBtn"} onClick={signUpHandler}> Sign up</button>
             </span>
 
             </form>

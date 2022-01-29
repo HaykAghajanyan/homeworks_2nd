@@ -86,7 +86,7 @@ body {
     transition: 0.5s;
     /*width: 250px;*/
     /*zoom: 50%;*/
-    transform: scale(1.05);
+    transform: scale(1.01);
 }
 
 .message-text:hover #deleteMessage {
@@ -123,6 +123,8 @@ body {
     border-radius: 10px;
     background-color: #E4E6EB;
     color: white;
+    padding-left: 5px;
+    padding-right: 40px;
 }
 
 .Green {
