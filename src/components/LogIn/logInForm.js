@@ -27,7 +27,7 @@ function LogInForm({ login, error, handleUser}) {
                                onChange={e => setDetails({...details, password: e.target.value} )} value={details.password}/>
                     </div>
                     <button className='logBtn' onClick={() => handleUser(details.username)}>LOGIN</button>
-                    {/*<input type="submit" value='LOGIN'  />*/}
+
                 </div>
             </form>
         </div>

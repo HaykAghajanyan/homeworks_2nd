@@ -3,57 +3,22 @@ import {useMessagesData} from "../../contexts/messagesContext";
 import MessageComp from "../MessageComp";
 import {useEffect} from "react";
 import {FILTER_OPTIONS} from "../../helpers/constants";
-import {NavLink} from "react-router-dom";
+import {NavLink, useNavigate} from "react-router-dom";
 import NewMessage from "../newMessage/newMessage";
 
 const Messages = ({configs, loggedUser}) => {
-    let {messages} = useMessagesData()
+    const {messages} = useMessagesData()
+    const navigate = useNavigate();
+    const inputRef = useRef(null)
 
-    let dateObj = new Date();
-    let month = dateObj.getUTCMonth() + 1; //months from 1-12
-    let day = dateObj.getUTCDate();
-    let year = dateObj.getUTCFullYear();
-
-    let newdate = day + "/" + month + "/" + year;
+    let newdate = new Date().toLocaleDateString('en-US', {day: '2-digit', month: '2-digit', year: 'numeric'})
 
     const [filteredMessages, setFilteredMessages] = useState([])
     const [filterSelectValue, setFilterSelectValue] = useState(FILTER_OPTIONS[0])
     const [filterInputValue, setFilterInputValue] = useState('')
-
-    const [newMessage, setNewMessage] = useState(messages);
-    const [newItem, setNewItem] = useState('')
-
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
-        //
-        // setNewMessages(messages.concat(messageNew))
-        // setNewMessage('')
-        // console.log(messageNew)
-        // console.log(messages)
-    }
-
-    const addItemHandler = () => {
-
-        let messageNew = {
-            id: newMessage.length + 1,
-            name: loggedUser,
-            date: newdate,
-            text: newItem,
-            textColor: "black",
-            nameColor: "black"
-        }
-        // console.log(messages)
-
-        setNewMessage([...newMessage, messageNew])
-        setNewItem('')
-
-    }
-
-    const inputRef = useRef(null)
-
-
+    const [newMessage, setNewMessage] = useState('')
+    const [messageEditing, setMessageEditing] = useState(null)
+    const [editingText, setEditingText] = useState('')
 
     useEffect(() => {
         filterMessages()
@@ -75,6 +40,25 @@ const Messages = ({configs, loggedUser}) => {
         }, 400)
     }
 
+    const handleSubmit = (e) => {
+        e.preventDefault();
+    }
+
+    const addMessage = () => {
+        let messageNew = {
+            id: messages.length + 1,
+            name: loggedUser,
+            date: newdate,
+            text: newMessage,
+            textColor: "black",
+            nameColor: "black"
+        }
+
+        messages.push(messageNew)
+        navigate('./');
+        setNewMessage('')
+    }
+
     const handleSelectValue = e => {
         setFilterSelectValue(e.target.value)
     }
@@ -82,23 +66,65 @@ const Messages = ({configs, loggedUser}) => {
         setFilterInputValue(e.target.value)
     }
 
+    const handleNewMessage = e => {
+        setNewMessage(e.target.value)
+    }
+
+
+    const deleteMessage = (id) => {
+        // console.log('deleted')
+        const deletedMessageindex = messages.findIndex(item => item.id === id);
+        messages.splice(deletedMessageindex, 1);
+
+        setTimeout(() => {
+            navigate('./')
+        }, )
+    }
+
+    const editMessage = (id) => {
+        const updateMesasges = [...messages].map((message) => {
+            if(message.id === id) {
+                message.text = editingText
+            }
+            return message
+        })
+        setTimeout(() => {
+            navigate('./')
+        }, )
+        setMessageEditing(null)
+        setEditingText('')
+    }
+
     return (
         <>
             <div>
                 <form className='addForm' onSubmit={handleSubmit}>
-                    <input className='addInp' type="text" onChange={e => setNewItem(e.target.value)} value={newItem}/>
-                    <button className='addBtn' onClick={addItemHandler}>Add New Message</button>
+                    <input className='addInp' type="text" onChange={handleNewMessage} value={newMessage}/>
+                    <button className='addBtn' onClick={addMessage}>Add New Message</button>
                 </form>
 
             </div>
             {
-                newMessage.map(message => (
+                messages.map(message => (
                     // <NavLink key={message.id} className='message-container' to={`${message.id}`}>
-                        <div className='message-item'>
-                            <MessageComp item={message}/>
+                        <div key={message.id} className='message-item'>
+
+                            <div>
+                                {messageEditing === message.id ?
+                                    ( <input type="text"
+                                           onChange={(e) => setEditingText(e.target.value)}
+                                           value={editingText}
+                                    />) : (<MessageComp item={message}/>)}
+                            </div>
+                            <div >
+                                <span className='bttn'><button >Reply</button></span>
+                                {messageEditing === message.id ?
+                                    (<span className='bttn' onClick={() => editMessage(message.id)}><button >Submit Edits</button></span>) :
+                                    (<span className='bttn' onClick={() => setMessageEditing(message.id)}><button >Edit</button></span>)}
+                                <span className='bttn' onClick={() => deleteMessage(message.id)}><button >Delete</button></span>
+                            </div>
                         </div>
                     // </NavLink>
-
                 ))
             }
         </>

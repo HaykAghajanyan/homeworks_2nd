@@ -25,9 +25,9 @@ function LogIn({handleUser}) {
 
 
 
-    const logout = () => {
-        setUser({username: ''});
-    }
+    // const logout = () => {
+    //     setUser({username: ''});
+    // }
 
     return (
         <div className='logIn'>
