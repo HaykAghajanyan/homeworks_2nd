@@ -6,8 +6,16 @@ import {FILTER_OPTIONS} from "../../helpers/constants";
 import {NavLink} from "react-router-dom";
 import NewMessage from "../newMessage/newMessage";
 
-const Messages = ({configs}) => {
+const Messages = ({configs, loggedUser}) => {
     let {messages} = useMessagesData()
+
+    let dateObj = new Date();
+    let month = dateObj.getUTCMonth() + 1; //months from 1-12
+    let day = dateObj.getUTCDate();
+    let year = dateObj.getUTCFullYear();
+
+    let newdate = day + "/" + month + "/" + year;
+
     const [filteredMessages, setFilteredMessages] = useState([])
     const [filterSelectValue, setFilterSelectValue] = useState(FILTER_OPTIONS[0])
     const [filterInputValue, setFilterInputValue] = useState('')
@@ -27,18 +35,19 @@ const Messages = ({configs}) => {
     }
 
     const addItemHandler = () => {
+
         let messageNew = {
-            id: "10",
-            name: "Hasmik",
-            date: "29/01/2022",
+            id: newMessage.length + 1,
+            name: loggedUser,
+            date: newdate,
             text: newItem,
             textColor: "black",
             nameColor: "black"
         }
-        // messages = [...messages].concat(messageNew);
+        // console.log(messages)
 
-        setNewMessage([...newMessage].concat(messageNew))
-
+        setNewMessage([...newMessage, messageNew])
+        setNewItem('')
 
     }
 
@@ -76,9 +85,9 @@ const Messages = ({configs}) => {
     return (
         <>
             <div>
-                <form onSubmit={handleSubmit}>
-                    <input type="text" onChange={e => setNewItem(e.target.value)} value={newItem}/>
-                    <button  onClick={addItemHandler}>Add New Message</button>
+                <form className='addForm' onSubmit={handleSubmit}>
+                    <input className='addInp' type="text" onChange={e => setNewItem(e.target.value)} value={newItem}/>
+                    <button className='addBtn' onClick={addItemHandler}>Add New Message</button>
                 </form>
 
             </div>

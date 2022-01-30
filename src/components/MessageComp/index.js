@@ -2,7 +2,7 @@ import './button.css'
 
 
 
-const MessageComp = ({item: {name, date, text, textColor, nameColor}}) => {
+const MessageComp = ({item: {name, date, text, textColor, nameColor, id}}) => {
 
     const consoleName = () => {
         console.log({name})

@@ -1,11 +1,11 @@
 import React, {useCallback, useState} from 'react';
 import LogInForm from "./logInForm";
 import {users} from "../../helpers/constants";
-import './logIn.css'
+// import './logIn.css'
 import { useNavigate} from "react-router-dom";
 
 
-function LogIn({configs}) {
+function LogIn({handleUser}) {
     const navigate = useNavigate();
     const [user, setUser] = useState({username: ''});
     const [error, setError] = useState('');
@@ -32,13 +32,13 @@ function LogIn({configs}) {
     return (
         <div className='logIn'>
             {(user.username !== '') ? (
-                <div className='welcome'>
-                    <h2>Welcome, <span>{user.username}</span></h2>
-                    <button onClick={logout}>LOGOUT</button>
-                </div> ,
+                // <div className='welcome'>
+                //     <h2>Welcome, <span>{user.username}</span></h2>
+                //     <button onClick={logout}>LOGOUT</button>
+                // </div> ,
                 navigate("messages")
             ): (
-                <LogInForm login={login} error={error}/>
+                <LogInForm handleUser={handleUser} login={login} error={error}/>
             )
             }
         </div>

@@ -11,9 +11,8 @@
 }
 
 .bttn:hover {
-    border: 1px #4CAF50 solid;
-    background-color: #4CAF50;
-    color: white;
+    border: 1px darkseagreen solid;
+    background-color: darkseagreen;
 }
 
 

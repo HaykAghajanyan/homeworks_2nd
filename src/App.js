@@ -9,6 +9,7 @@ import NewMessage from "./components/newMessage/newMessage";
 
 const App = () => {
     const [configs, setConfigs] = useState({})
+    const [loggedUser, setLoggedUser] = useState()
 
 
     // const navigate = useNavigate()
@@ -17,7 +18,9 @@ const App = () => {
         setConfigs(configsObj)
     }, [])
 
-
+    const handleUser = useCallback((logginUser) => {
+        setLoggedUser(logginUser)
+    }, [])
 
     // const goBack = () => {
     //     setTimeout(() => {
@@ -29,9 +32,9 @@ const App = () => {
         <>
             <Header/>
             <Routes>
-                <Route path='' element={<LogIn configs={configs}/>}/>
-                <Route path='addMessage' element={<NewMessage/>}/>
-                <Route path='messages' element={<Messages configs={configs}/>}/>
+                <Route path='' element={<LogIn handleUser={handleUser} />}/>
+                {/*<Route path='addMessage' element={<NewMessage/>}/>*/}
+                <Route path='messages' element={<Messages configs={configs} loggedUser={loggedUser} />}/>
                 <Route path='configs' element={<Configs handleConfigs={handleConfigs}/>}/>
                 {/*<Route path=':id' element={*/}
                 {/*    <PopupWrapper onClose={goBack}>*/}

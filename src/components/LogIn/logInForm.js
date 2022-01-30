@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import './logIn.css'
 
-function LogInForm({ login, error }) {
+function LogInForm({ login, error, handleUser}) {
 
     const [details, setDetails] = useState({username: '', password: ''});
 
@@ -13,20 +13,21 @@ function LogInForm({ login, error }) {
 
     return (
         <div>
-            <form onSubmit={submitHandler}>
+            <form className='formIn' onSubmit={submitHandler}>
                 <div className='form-inner'>
                     <h2>LogIn</h2>
                     {(error !== '')? (<div className='error'>{error}</div>) : ''}
                     <div className='form-group'>
                         <label htmlFor="username">Name: </label>
-                        <input type="text"  onChange={e => setDetails({...details, username: e.target.value} )} value={details.username}/>
+                        <input className='login' type="text"  onChange={e => setDetails({...details, username: e.target.value} )} value={details.username}/>
                     </div>
                     <div className='form-group'>
                         <label htmlFor="password">Password:  </label>
-                        <input type="password"
+                        <input className='login' type="password"
                                onChange={e => setDetails({...details, password: e.target.value} )} value={details.password}/>
                     </div>
-                    <input type="submit" value='LOGIN' />
+                    <button className='logBtn' onClick={() => handleUser(details.username)}>LOGIN</button>
+                    {/*<input type="submit" value='LOGIN'  />*/}
                 </div>
             </form>
         </div>
