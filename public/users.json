@@ -1,0 +1,20 @@
+[
+    {
+      "userId": "1",
+      "userName": "Alex",
+      "password": "111",
+      "isLoggedIn": false
+    },
+    {
+      "userId": "2",
+      "userName": "Karen",
+      "password": "222",
+      "isLoggedIn": false
+    },
+    {
+      "userId": "3",
+      "userName": "Hayk",
+      "password": "333",
+      "isLoggedIn": false
+    }
+  ]

@@ -1,0 +1,22 @@
+.loginPart{
+    margin: auto;
+    margin-top: 100px;
+    width: 300px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border:2px solid rgb(5, 165, 5);
+    border-radius: 2%;
+}
+.inputElem{
+    margin-bottom: 10px;
+    margin-left: 10px;
+}
+.buttonStyle{
+    background-color: rgb(5, 165, 5);
+     width: 75px;
+    border-radius: 10px;
+    margin: auto;
+    border: 2px solid rgb(5, 165, 5);
+}
