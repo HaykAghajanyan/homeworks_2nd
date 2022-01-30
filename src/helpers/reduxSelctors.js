@@ -1,6 +1,4 @@
 export const configSelector = ({ConfigsDuck}) => ConfigsDuck
-
-
-export function createAction(type) {
-    return (payload) => ({ type, payload });
-}
+export const messagesSelector = ({MessageDuck}) => MessageDuck
+export const appSelector = ({AppDuck}) => AppDuck
+export const userSelector = ({UserDuck}) => UserDuck

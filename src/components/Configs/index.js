@@ -1,29 +1,19 @@
 import {colors, colorTarget} from "../../helpers/constants";
-import {useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {changeColor, changeColor2, changeTarget} from "../../redux/ducks/configsDuck";
+import {changeColor, changeTarget} from "../../redux/ducks/configsDuck";
 import {configSelector} from "../../helpers/reduxSelctors";
 
 
-const Configs = ({handleConfigs}) => {
-    // const [color, setColor] = useState(colors[0])
-    // const [target, setTarget] = useState(colorTarget[0].target)
-    //
-    // useEffect(() => {
-    //     handleConfigs({color, target})
-    // },[color, target])
-
+const Configs = () => {
     const dispatch = useDispatch()
 
     const {color, target} = useSelector(configSelector)
 
     const handleColorChange = e => {
-        // setColor(e.target.value)
-        dispatch(changeColor2(e.target.value))
+        dispatch(changeColor(e.target.value))
     }
 
     const handleTargetChange = e => {
-        // setTarget(e.target.value)
         dispatch(changeTarget(e.target.value))
     }
 

@@ -12,7 +12,7 @@
       "id": "2",
       "name": "Hayk",
       "date": "21/03/2020",
-      "text": "I`ll be late today",
+      "text": "I`ll be late today, I swear not to be late tomorrow",
       "textColor": "black",
       "nameColor": "black"
     },
@@ -31,15 +31,14 @@
       "text": "Hi, maybe I`ll be free after work today. I`ll call you",
       "textColor": "black",
       "nameColor": "black"
-
     },
     {
+      "date": "21/03/2020",
       "id": "5",
       "name": "Hayk",
-      "date": "21/03/2020",
-      "text": "Yesterday I did great job with my application, you can check it out on my page",
-      "textColor": "black",
-      "nameColor": "black"
+      "nameColor": "black",
+      "text": "Yesterday I with my application, you can check it out on my page",
+      "textColor": "black"
     },
     {
       "id": "6",
@@ -56,13 +55,12 @@
       "text": "My car is in service center now, I can`t visit you",
       "textColor": "black",
       "nameColor": "black"
-
     },
     {
       "id": "8",
       "name": "Hayk",
       "date": "21/03/2020",
-      "text": "So, what is up with that job?",
+      "text": "So, what is up with that job? Don`t reply, I know",
       "textColor": "black",
       "nameColor": "black"
     },
