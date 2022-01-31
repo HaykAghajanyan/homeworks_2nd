@@ -1,7 +1,7 @@
 import { SetMessages, changeTextColorOfMessage, changeNameColorOfMessage } from "../constants/ReduxActionTypes"
 const defaultState = null;
 const defaultAction = { type: null, payload: null };
-function colorReducer(state = defaultState, action = defaultAction) {
+function messageReducer(state = defaultState, action = defaultAction) {
 	switch (action.type) {
 		case SetMessages:
 			return { ...action.payload };
@@ -25,4 +25,4 @@ function colorReducer(state = defaultState, action = defaultAction) {
 	}
 };
 
-export default colorReducer;
+export default messageReducer;

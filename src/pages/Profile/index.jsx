@@ -1,7 +1,7 @@
 import { List, ListItem, ListItemText } from "@mui/material";
 import useData from "../../hooks/useData";
 import "./style.css"
-function Home(props) {
+function Profile(props) {
 	const state = useData()
 	return (
 		<List className="message_list">
@@ -32,4 +32,4 @@ function Home(props) {
 		</List>
 	);
 }
-export default Home;
+export default Profile;

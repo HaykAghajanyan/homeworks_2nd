@@ -1,5 +1,6 @@
 .color_form {
 	width: 100%;
+	min-height: calc(100vh - 100px);
 	max-width: 650px;
 	min-width: 320px;
 	padding: 0.5rem !important;

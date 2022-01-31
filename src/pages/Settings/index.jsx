@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import useData from "../../hooks/useData";
 import Select from "../../components/uiKits/Select"
 import ColorPicker from "../../components/uiKits/ColorPicker";
-import { changeName, changeText } from "../../store/actions"
+import { changeName, changeText } from "../../store/messageActions"
 import "./style.css"
 const getState = state => state.message
 function Settings(props) {

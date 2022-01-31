@@ -1,46 +1,61 @@
-.message_list {
+.home {
 	width: 100%;
-	max-width: 650px;
-	min-width: 320px;
-	padding: 0.5rem !important;
-	margin: 0 auto !important;
+	min-height: calc(100vh - 100px);
+	background-color: #19386a;
+	position: relative;
+}
+
+.home__baner {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 100%;
+	max-width: 500px;
+	min-width: 280px;
+	height: 450px;
+	border-radius: 1.25rem;
+	overflow: hidden;
+}
+
+.home__baner::before {
+	content: '';
+	position: inherit;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: calc(100% + 220px);
+	height: calc(100% + 220px);
+	background: linear-gradient(45deg,#fa8734 20%,#dd0239 40%,#319197 80%);
+	animation: rotate infinite 1s linear;
+}
+
+@keyframes rotate {
+	to {
+		transform: translate(-50%, -50%) rotate(360deg);
+	}
+}
+
+.home__message {
+	position: absolute;
+	width: calc(100% - 30px);
+	height: calc(100% - 30px);
+	top: 15px;
+	left: 15px;
+	border-radius: 10px;
+	background: #19386a;
+	color: white;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 }
-.message_list__item {
-	padding: 5px;
-	border-bottom: 1px solid black;
+
+.home__message > span {
+	font-size: 3rem;
 }
 
-.message_list__item:last-child {
-	border: 0;
-}
-
-.message_list__item > div {
-	width: 65%;
-}
-
-.message_list__title {
-	width: 100%;
-	position: relative;
-	color: #000;
-	padding-bottom: 8px;
-	font-size: 1.25rem !important;
-}
-.message_list__title::after {
-	content: attr(data-date);
-	position: absolute;
-	top: 5px;
-	right: 0;
-	font-size: 11px;
-	color: #525252;
-}
-.message_list__text {
-	width: 100%;
-	max-height: 400px;
-	overflow-y: auto;
-	color: #000;
-	font-size: 0.75rem !important;
+.home__message > span:last-child {
+	font-size: 5rem;
+	text-transform: uppercase;
 }

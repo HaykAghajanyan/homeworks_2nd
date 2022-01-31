@@ -1,9 +1,12 @@
+import { useState, useCallback, useRef, useEffect } from "react";
 import { Routes, Route } from "react-router-dom"
 import Home from "./pages/Home";
+import Profile from "./pages/Profile";
 import NotFound from "./pages/NotFound";
 import Settings from "./pages/Settings";
 import Header from "./components/Header"
 import Footer from "./components/Footer"
+import AuthSection from "./components/AuthSection"
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 
 const darkTheme = createTheme({
@@ -27,16 +30,23 @@ const darkTheme = createTheme({
 });
 
 function App(props) {
-
+	const [isAuthSectionOpen, setIsAuthSectionOpen] = useState(false)
+	const openAuthSection = useCallback(() => setIsAuthSectionOpen(true), [])
+	const closeAuthSection = useCallback(() => setIsAuthSectionOpen(false), [])
 	return (
 		<ThemeProvider theme={darkTheme}>
-			<Header />
+			<Header openAuthSection={openAuthSection} />
 			<Routes>
 				<Route path="/" element={<Home />} />
+				<Route path="/profile" element={<Profile />} />
 				<Route path="/settings" element={<Settings />} />
 				<Route path="*" element={<NotFound />} />
 			</Routes>
 			<Footer />
+			<AuthSection
+				isAuthSectionOpen={isAuthSectionOpen}
+				onClose={closeAuthSection}
+			/>
 		</ThemeProvider>
 	)
 }

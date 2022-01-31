@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { GetMessages } from "../api"
-import { actionSetMessage } from "../store/actions"
+import { actionSetMessage } from "../store/messageActions"
 const getState = state => state.message
 function useData() {
 	const dispatcher = useDispatch()

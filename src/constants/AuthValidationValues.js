@@ -1,0 +1,2 @@
+export const emailRegExp = /^\w+@\w+\.\w+$/g // only alpha-numeric symbols and '_' with [text]@[text].[text] formatte
+export const passwordRegExp = /\w{6}/g // minimum 6 length string with alpha-numeric symbols and '_'

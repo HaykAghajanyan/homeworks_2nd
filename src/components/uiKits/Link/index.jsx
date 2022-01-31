@@ -4,19 +4,29 @@ import { makeStyles } from "@mui/styles";
 
 const useStyles = makeStyles({
 	link: {
-		margin: '2px 5px',
-		textDecoration: 'none',
-		fontSize: '1rem',
+		margin: '2px 5px !important',
+		textDecoration: 'none !important',
+		fontSize: '1rem !important',
 		'&.active:hover': {
-			cursor: 'default'
+			cursor: 'default !important'
 		},
 		'&:hover:not(.active)': {
-			textDecoration: 'underline',
+			textDecoration: 'underline !important',
+		}
+	},
+	linkWithoutActive: {
+		margin: '2px 5px !important',
+		textDecoration: 'none !important',
+		fontSize: '1.5rem !important',
+		color: '#9cc !important',
+		'&:hover': {
+			cursor: 'pointer !important',
+			color: 'white !important'
 		}
 	}
 })
 
-function Link({ to, children }) {
+function Link({ to, children, withoutActive = false }) {
 	const classes = useStyles()
 	let activeStyle = {
 		color: '#fff',
@@ -25,11 +35,11 @@ function Link({ to, children }) {
 	};
 	return (
 		<MuiLink
-			className={classes.link}
+			className={withoutActive ? classes.linkWithoutActive : classes.link}
 			color="primary.light"
 			component={NavLink} to={to}
 			style={({ isActive }) =>
-				isActive ? activeStyle : undefined
+				!withoutActive && isActive ? activeStyle : undefined
 			}
 		>
 			{children}
