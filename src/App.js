@@ -1,38 +1,39 @@
-import './App.css';
-import { BrowserRouter, Route, Routes } from 'react-router-dom'
-import Navbar from './Navbar';
-import Messages from './components/Messages';
-import Main from './components/Main';
-import { useState, useEffect} from 'react';
+import Header from "./components/Header";
+import {Route, Routes, useNavigate} from "react-router-dom";
+import Messages from "./components/Messages";
+import Configs from "./components/Configs";
+import {useCallback, useState} from "react";
+import PopupWrapper from "./components/PopupWrapper";
+import PopupMessage from "./components/PopupMessage";
 
-function App() {
+const App = () => {
+    const [configs, setConfigs] = useState({})
 
-  
-  const [data, setData] = useState();
-  const [color, setColor] = useState('');
-  const [selectedItem, setSelectedItem] = useState('');
+    const navigate = useNavigate()
 
-  useEffect(() => {
-    fetch('/db.json')
-        .then(res => res.json())
-        .then(res => {
-          console.log(res)
-            setData(res);
-        });
-}, [])
+    const handleConfigs = useCallback((configsObj) => {
+        setConfigs(configsObj)
+    }, [])
 
+    const goBack = () => {
+        setTimeout(() => {
+            navigate('..')
+        }, 200)
+    }
 
-  return (
-    <BrowserRouter>
-    <div className='row'>
-      <Navbar />
-        <Routes>
-          <Route  path='/messages' element={<Messages data={data} selectedItem={selectedItem} color={color} />}/>
-          <Route path='/main' element={<Main setColor={setColor} setSelectedItem={setSelectedItem}/>} />
-        </Routes>
-        </div>
-    </BrowserRouter>
-  );
+    return (
+        <>
+            <Header/>
+            <Routes>
+                <Route path='' element={<Messages configs={configs}/>}/>
+                <Route path='configs' element={<Configs handleConfigs={handleConfigs}/>}/>
+                <Route path=':id' element={
+                    <PopupWrapper onClose={goBack}>
+                        <PopupMessage/>
+                    </PopupWrapper>}/>
+            </Routes>
+        </>
+    );
 }
 
 export default App;
