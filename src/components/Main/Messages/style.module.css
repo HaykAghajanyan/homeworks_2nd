@@ -85,3 +85,7 @@ letter-spacing: 1px;
 text-transform: capitalize;
 color: #ffffff90;
 }
+
+.linkToMessage{
+    text-decoration: none;
+}

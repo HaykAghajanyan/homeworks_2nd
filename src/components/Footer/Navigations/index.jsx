@@ -1,29 +1,32 @@
-import React, { useEffect,useState} from "react";
-import { Link } from "react-router-dom";
+import React, { useCallback } from "react";
+import { useDispatch } from "react-redux";
+import {  NavLink } from "react-router-dom";
+import { changeRoute } from "../../../redux/ducks/appDuck";
 import style from "./style.module.css"
+import styleC from "./style.css"
 
-const Navigations = ({navEl, chosenActive , setChosenActive}) => {
-    const chooseActive = e =>{
-        if(e.target.id !== chosenActive) {
-            setChosenActive(e.target.id)
-        }
-    }
+
+
+const Navigations = ({navEl}) => {
+    const dispatch = useDispatch()
+
+    const handleRouteChange = useCallback((route)=>{
+        dispatch(changeRoute(route))
+    })
 
     return (
             <>
                 <nav className={style.nav}>
                     {
-                    
-                    navEl.map(el =>
-                    <Link to={el.url} key={el.id}>
-                      <div 
-                      id={el.id}
-                      className={`${style['nav-item']} ${el.id.toString()  === chosenActive? style.active : null}`} 
-                      style={{'backgroundImage':`url(${el.icoUrl})`}}
-                      onClick={chooseActive} 
-                      > </div> 
-                    </Link> 
-                    )
+                        navEl.map(el =>
+                        <NavLink to={el.url} key={el.id} onClick={()=>handleRouteChange(el.url)}>
+                        <div 
+                        id={el.id}
+                        className={`${style['nav-item']}`} 
+                        style={{'backgroundImage':`url(${el.icoUrl})`}}
+                        > </div> 
+                        </NavLink> 
+                        )
                     }
                 
                 </nav>

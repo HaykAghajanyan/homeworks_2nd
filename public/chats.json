@@ -1,0 +1,30 @@
+{
+    "chats":[
+        {
+        "chatId":"1",
+        "info":[{
+            "id":"1",
+            "messageId":"1",
+            "idFromUser":"2",
+            "idToUser":"1",
+            "date": "17/05/2021"
+            },{
+            "id":"2",
+            "messageId":"3",
+            "idFromUser":"1",
+            "idToUser":"2",
+            "date": "17/05/2021"
+            }]
+        },
+        {
+        "chatId":"2",
+        "info":[{
+            "id":"1",
+            "messageId":"2",
+            "idFromUser":"3",
+            "idToUser":"1",
+            "date": "17/05/2021"
+            }]
+        }
+    ]
+}

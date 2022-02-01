@@ -1,0 +1,28 @@
+[{
+  "messages": [
+    {
+      "id": "1",
+      "name": "Alex",
+      "date": "17/05/2021",
+      "text": "Hello Admin",
+      "textColor": "#FFFFFF",
+      "nameColor": "#FFFFFF"
+    },
+    {
+      "id": "2",
+      "name": "Hayk",
+      "date": "21/03/2020",
+      "text": "I`ll be late today",
+      "textColor": "#FFFFFF",
+      "nameColor": "#FFFFFF"
+    },
+    {
+      "id": "3",
+      "name": "admin",
+      "date": "17/05/2021",
+      "text": "Hello Alex",
+      "textColor": "#FFFFFF",
+      "nameColor": "#FFFFFF"
+    }
+  ]
+}]

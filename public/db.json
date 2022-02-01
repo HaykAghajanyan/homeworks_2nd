@@ -1,110 +1,169 @@
-[{
-  "messages": [
-    {
-      "id": "1",
-      "name": "Alex",
-      "date": "17/05/2021",
-      "text": "Hello Hayk",
-      "textColor": "#FFFFFF",
-      "nameColor": "#FFFFFF"
-    },
-    {
-      "id": "2",
-      "name": "Hayk",
-      "date": "21/03/2020",
-      "text": "I`ll be late today",
-      "textColor": "#FFFFFF",
-      "nameColor": "#FFFFFF"
-    },
-    {
-      "id": "3",
-      "name": "Karen",
-      "date": "13/09/2021",
-      "text": "Hey man, when can you come to hang over? I`ll be free today",
-      "textColor": "#FFFFFF",
-      "nameColor": "#FFFFFF"
-    },
-    {
-      "id": "4",
-      "name": "Alex",
-      "date": "13/09/2021",
-      "text": "Hi, maybe I`ll be free after work today. I`ll call you",
-      "textColor": "#FFFFFF",
-      "nameColor": "#FFFFFF"
+{
+    "chats":[
+        {
+        "id":1,
+        "chatGroup":[
+          {
+            "id":"1",
+            "userId":"1",
+            "userName":"admin admin"
+          },
+          {
+            "id":"2",
+            "userId":"2",
+            "userName":"Alex"
+          }
+        ],
+        "info":[{
+            "id":"1",
+            "messageId":"1",
+            "idFromUser":"2",
+            "idToUser":"1",
+            "date": "16/05/2021",
+            "message":{
+              "id": "1",
+              "name": "Alex",
+              "date": "17/05/2021",
+              "text": "Hello Admin",
+              "textColor": "#FFFFFF",
+              "nameColor": "#FFFFFF"
+              }
+            },{
+            "id":"2",
+            "messageId":"3",
+            "idFromUser":"1",
+            "idToUser":"2",
+            "date": "17/05/2021",
+            "message":{
+              "id": "3",
+              "name": "admin",
+              "date": "17/05/2021",
+              "text": "Hello Alex",
+              "textColor": "#FFFFFF",
+              "nameColor": "#FFFFFF"
+            }
+            }]
+        },
+        {
+        "id":2,
+        "chatGroup":[
+          {
+            "id":"1",
+            "userId":"1",
+            "userName":"admin admin"
+          },
+          {
+            "id":"2",
+            "userId":"3",
+            "userName":"Hayk"
+          }
+        ],
+        "info":[{
+            "id":"1",
+            "messageId":"2",
+            "idFromUser":"3",
+            "idToUser":"1",
+            "date": "18/05/2021",
+            "message": {
+              "id": "2",
+              "name": "Hayk",
+              "date": "21/03/2020",
+              "text": "I`ll be late today",
+              "textColor": "#FFFFFF",
+              "nameColor": "#FFFFFF"
+            }
+            }]
+        },
+        {
+          "id":3,
+          "chatGroup":[
+            {
+              "id":"1",
+              "userId":"2",
+              "userName":"Alex"
+            },
+            {
+              "id":"2",
+              "userId":"3",
+              "userName":"Hayk"
+            }
+          ],
+          "info":[{
+              "id":"1",
+              "messageId":"4",
+              "idFromUser":"3",
+              "idToUser":"2",
+              "date": "17/05/2021",
+              "message":{
+                "id": "4",
+                "name": "Hayk",
+                "date": "17/05/2021",
+                "text": "Hello Alex",
+                "textColor": "#FFFFFF",
+                "nameColor": "#FFFFFF"
+              }
 
-    },
-    {
-      "id": "5",
-      "name": "Hayk",
-      "date": "21/03/2020",
-      "text": "Yesterday I did great job with my application, you can check it out on my page",
-      "textColor": "#FFFFFF",
-      "nameColor": "#FFFFFF"
-    },
-    {
-      "id": "6",
-      "name": "Karen",
-      "date": "01/01/2022",
-      "text": "Merry Christmas and a happy New Year",
-      "textColor": "#FFFFFF",
-      "nameColor": "#FFFFFF"
-    },
-    {
-      "id": "7",
-      "name": "Alex",
-      "date": "17/05/2021",
-      "text": "My car is in service center now, I can`t visit you",
-      "textColor": "#FFFFFF",
-      "nameColor": "#FFFFFF"
-
-    },
-    {
-      "id": "8",
-      "name": "Hayk",
-      "date": "21/03/2020",
-      "text": "So, what is up with that job?",
-      "textColor": "#FFFFFF",
-      "nameColor": "#FFFFFF"
-    },
-    {
-      "id": "9",
-      "name": "Karen",
-      "date": "13/07/2021",
-      "text": "Have you ever thought about living in another country?",
-      "textColor": "#FFFFFF",
-      "nameColor": "#FFFFFF"
-    },
-    {
-      "id": "10",
-      "name": "Hayk",
-      "date": "21/03/2020",
-      "text": "So, what is up with that job?",
-      "textColor": "#FFFFFF",
-      "nameColor": "#FFFFFF"
-    },
-    {
-      "id": "11",
-      "name": "Karen",
-      "date": "13/07/2021",
-      "text": "Have you ever thought about living in another country?",
-      "textColor": "#FFFFFF",
-      "nameColor": "#FFFFFF"
-    },
-    {
-      "id": "12",
-      "name": "Hayk",
-      "date": "21/03/2020",
-      "text": "So, what is up with that job?",
-      "textColor": "#FFFFFF",
-      "nameColor": "#FFFFFF"
-    },
-    {
-      "id": "13",
-      "name": "Karen",
-      "date": "13/07/2021",
-      "text": "Have you ever thought about living in another country?",
-      "textColor": "#FFFFFF",
-      "nameColor": "#FFFFFF"
-    }
-  ]
-}]
+              }]
+          }
+    ],
+    "messages": [
+        {
+          "id": "1",
+          "name": "Alex",
+          "date": "17/05/2021",
+          "text": "Hello Admin",
+          "textColor": "#FFFFFF",
+          "nameColor": "#FFFFFF"
+        },
+        {
+          "id": "2",
+          "name": "Hayk",
+          "date": "21/03/2020",
+          "text": "I`ll be late today",
+          "textColor": "#FFFFFF",
+          "nameColor": "#FFFFFF"
+        },
+        {
+          "id": "3",
+          "name": "admin",
+          "date": "17/05/2021",
+          "text": "Hello Alex",
+          "textColor": "#FFFFFF",
+          "nameColor": "#FFFFFF"
+        },
+        {
+          "id": "4",
+          "name": "Hayk",
+          "date": "17/05/2021",
+          "text": "Hello Alex",
+          "textColor": "#FFFFFF",
+          "nameColor": "#FFFFFF"
+        }
+    ],
+    "users":[
+        {
+        "id": "1",
+        "email": "admin@mail.ru",
+        "passwoard": "admin",
+        "userName": "admin admin",
+        "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9",
+        "date": "17/05/2021"
+        },
+        {
+        "id": "2",
+        "email": "Alex@mail.ru",
+        "passwoard": "Alex",
+        "userName": "Alex",
+        "token": "eyJtZXNzYWdlIjoiSldUIFJ1bGVzISIsImlhdCI6MTQ1OTQ0ODExOSwiZXhwIjoxNDU5NDU0NTE5fQ",
+        "date": "17/05/2021"
+        },
+        {
+        "id": "3",
+        "email": "Hayk@mail.ru",
+        "passwoard": "Hayk",
+        "userName": "Hayk",
+        "token": "yIVBD5b73C75osbmwwshQNRC7frWUYrqaTjTpza2y4",
+        "date": "17/05/2021"
+        }
+    ]
+}

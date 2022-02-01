@@ -1,0 +1,54 @@
+.messageItem{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px 80% 20%;
+    height: 100%;
+}
+.singleMessHeader{
+    height: 60px;
+    display: grid;
+    grid-template-columns: 40px auto 40px;
+    border-bottom: 1px solid #00000052;
+    border-top: 1px solid #00000052;
+}
+.goBackBtnBox{
+    display: flex;
+    align-items: center;
+}
+.goBackBtn{
+    padding: 3px;
+    border: 0px;
+    margin-left: 5px;
+    background-color: #0000;
+    cursor: pointer;
+    height: 35px;
+    transition: .3s;
+}
+.goBackBtn:active{
+    height: 32px;
+
+}
+.fromUserBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-family: sans-serif;
+    font-weight: 500;
+    text-decoration: underline;
+}
+.userAvatar{
+    margin-right: 10px;
+    position: relative;
+    width: 45px;
+    height: 45px;
+    background: #000000;
+    border-radius: 22px;
+    background: url(https://pic.onlinewebfonts.com/svg/img_258083.png);
+    filter: drop-shadow(4px 4px 24px rgba(0, 0, 0, 0.45));
+    border-radius: 30px;
+    background-position: center;
+    background-size: 101%;
+    background-repeat: no-repeat;
+    background-color: white;
+}

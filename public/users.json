@@ -1,0 +1,27 @@
+{
+    "users":[{
+      "id": "1",
+      "login": "admin",
+      "email": "admin@mail.ru",
+      "passwoard": "admin",
+      "userName": "admin admin",
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXNzYWdlIjoiSldUIFJ1bGVzISIsImlhdCI6MTQ1OTQ0ODExOSwiZXhwIjoxNDU5NDU0NTE5fQ.-yIVBD5b73C75osbmwwshQNRC7frWUYrqaTjTpza2y4",
+      "date": "17/05/2021"
+  },{
+    "id": "2",
+    "login": "Alex",
+    "email": "Alex@mail.ru",
+    "passwoard": "Alex",
+    "userName": "Alex",
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXNzYWdlIjoiSldUIFJ1bGVzISIsImlhdCI6MTQ1OTQ0ODExOSwiZXhwIjoxNDU5NDU0NTE5fQ.-yIVBD5b73C75osbmwwshQNRC7frWUYrqaTjTpza2y4",
+    "date": "17/05/2021"
+  },{
+    "id": "3",
+    "login": "Hayk",
+    "email": "Hayk@mail.ru",
+    "passwoard": "Hayk",
+    "userName": "Hayk",
+    "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJtZXNzYWdlIjoiSldUIFJ1bGVzISIsImlhdCI6MTQ1OTQ0ODExOSwiZXhwIjoxNDU5NDU0NTE5fQ.-yIVBD5b73C75osbmwwshQNRC7frWUYrqaTjTpza2y4",
+    "date": "17/05/2021"
+  }]
+}

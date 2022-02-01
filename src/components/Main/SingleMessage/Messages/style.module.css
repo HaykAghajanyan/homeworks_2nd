@@ -1,0 +1,35 @@
+.messageTo,.messageFrom{
+    padding: 10px 15px;
+    top: 0;
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 13px;
+    line-height: 15px;
+    letter-spacing: 1px;
+    color: #ffffffd2;
+    width: max-content;
+    max-width: 280px;
+}
+.messageTo{
+    position: absolute;
+    min-height: 20px;
+    left: 30px;
+    background: #373E4E;
+    border-radius: 20px;
+}
+.messageFrom{
+    position: absolute;
+    min-height: 20px;
+    right: 30px;
+    background: #272A35;
+    border-radius: 20px;
+    text-align: right;
+}
+.messagBox{
+    position: relative;
+    min-height: 40px; 
+    width: 100%;
+    padding: 10px 0px;
+    margin-bottom: 10px;
+}

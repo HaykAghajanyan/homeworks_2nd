@@ -74,9 +74,3 @@
     transition: .3s;
     position: relative;
 }
-.nav-item.active{
-    content: "";
-    background-color: #53596b;
-    border: 3px solid white;
-    top: -20px;
-}

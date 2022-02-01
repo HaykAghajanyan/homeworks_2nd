@@ -1,15 +1,25 @@
 import React, {useState } from "react";
 import { useEffect } from "react/cjs/react.development";
+import { useSelector } from "react-redux";
 import style from "./style.module.css"
 
-const Filter = ({messages,setSearchInput}) => {
+
+const Filter = ({setSearchInput}) => {
+    const {messages} = useSelector((state)=> state.MessagesDuck)
     const [inputValue,setinputValue] = useState('')
     useEffect(()=>{
-        const filteredMessages = messages.filter((el)=>el.name.toLowerCase().indexOf(inputValue.toLowerCase()) > -1)
+        let filteredMessages = ''
+        if(inputValue.length > 0){
+            filteredMessages = messages.filter(el=>{
+                const messagePath = el?.info.slice(-1)[0]?.message
+                return  messagePath.name.toLowerCase().indexOf(inputValue.toLowerCase()) > -1
+            })
+        }
         setSearchInput(filteredMessages)
     },[inputValue])
     return (
             <>
+            { console.log(messages)}
                 <div className={style.filterBox}>
                     <input type='text'onInput={e=>setinputValue(e.target.value)} value={inputValue}   className={style.search} placeholder="Search..."/>
                     <button className={style.searchBtn} onClick={()=>setinputValue('')} >   

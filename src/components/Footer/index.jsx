@@ -4,11 +4,11 @@ import style from "./style.module.css"
 import Navigations from "./Navigations"
 
 
-const Footer = ({navEl, chosenActive , setChosenActive}) => {
+const Footer = ({navEl}) => {
     return (
             <>
                 <footer className={style.footer}>
-                   <Navigations navEl = {navEl} chosenActive = {chosenActive} setChosenActive ={setChosenActive}/>
+                   <Navigations navEl = {navEl} />
                 </footer>
             </>
     )
