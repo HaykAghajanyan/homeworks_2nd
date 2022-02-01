@@ -1,12 +1,11 @@
 import {useEffect, useState} from "react";
 import {memo} from "react";
-import { Redirect } from 'react-router-dom'
+import { Navigate } from 'react-router-dom';
 const Login = () => {
     const [errorMsg, setErrorMsg] = useState({});
     const [isSubmit, setIsSubmit] = useState(false);
     const [nameInputValue, setNameInputValue] = useState('')
     const [passwordInputValue, setPasswordInputValue] = useState('')
-    const [redirectToMassages, setRedirectToMassages] = useState(false)
   const user_db = [
     {
       id:1,
@@ -24,7 +23,6 @@ const Login = () => {
         password: "pass3"
       }
   ];
-
   const errors = {
     user_name: "invalid username",
     password: "invalid password"
@@ -58,7 +56,7 @@ const handleInputPasswordValue = e => {
     name === errorMsg.name && (
       <div className="error">{errorMsg.message}</div>
     );
-
+   
   return (
       
     <div className="form">
