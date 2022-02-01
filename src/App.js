@@ -21,7 +21,7 @@ async function loginUser(token) {
     .catch(rej => console.log(rej))
 }
 const App = () =>{
-    
+    const token = sessionStorage.getItem('token')
     const {auth} = useSelector((state)=> state.AuthDuck)
     const dispatch = useDispatch()
     const [authUserName, setAuthUserName] = useState('guest')
@@ -82,7 +82,6 @@ const App = () =>{
         .catch(err=>console.log('err',err))
       }
     useEffect(()=>{
-        const token = sessionStorage.getItem('token')
         // const namePrompt = prompt('Enter Nick Name')
             if(auth && token){
                 getChats(auth)
