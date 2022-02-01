@@ -2,6 +2,7 @@ import Header from "./components/Header";
 import {Route, Routes, useNavigate} from "react-router-dom";
 import Messages from "./components/Messages";
 import Configs from "./components/Configs";
+import Login from "./components/Login";
 import {useCallback, useState} from "react";
 import PopupWrapper from "./components/PopupWrapper";
 import PopupMessage from "./components/PopupMessage";
@@ -26,6 +27,7 @@ const App = () => {
             <Header/>
             <Routes>
                 <Route path='' element={<Messages configs={configs}/>}/>
+                <Route path='login' element={<Login configs={configs}/>}/>
                 <Route path='configs' element={<Configs handleConfigs={handleConfigs}/>}/>
                 <Route path=':id' element={
                     <PopupWrapper onClose={goBack}>
