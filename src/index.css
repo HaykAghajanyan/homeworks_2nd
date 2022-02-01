@@ -51,20 +51,59 @@ code {
   margin: 20px auto
 }
 
+.new-post {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-post_inputs {
+  padding: 10px;
+}
+
+.new-post_area {
+  min-height: 100px;
+  width: 400px;
+  padding: 10px 40px;
+  border: 1px #ccc solid;
+}
+
+.new-post_area:focus {
+  outline: none;
+  border: 1px rgba(70,65,140,0.98) solid;
+}
+
 .action-buttons {
   display: flex;
   flex-direction: column;
   position: absolute;
-  bottom: 0;
+  top: 70px;
   right: 0;
   z-index: 9999;
 }
 
 .action-buttons-item {
-  padding: 5px;
-  border-radius: 5px;
   border: 1px solid #ccc;
   margin: 0 5px 5px 0;
+}
+
+.delete-message {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 5px;
+}
+
+.delete-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.btn {
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .message-filter {
@@ -89,5 +128,13 @@ code {
 
 .auth-item {
   display: flex;
+}
 
+.log-out {
+  color: #fff;
+  background-color: black;
+  border-radius: 5px;
+  border: 1px solid #000;
+  text-decoration: none;
+  padding: 10px;
 }

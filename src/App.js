@@ -5,9 +5,10 @@ import Configs from "./components/Configs";
 import {useCallback, useEffect, useState} from "react";
 import PopupWrapper from "./components/PopupWrapper";
 import PopupMessage from "./components/PopupMessage";
-import {fetchMessages} from "./redux/ducks/messageDuck";
 import {useDispatch} from "react-redux";
+import {fetchMessages} from "./redux/ducks/messageDuck";
 import AuthComponent from "./components/AuthComponent";
+import {fetchId} from "./redux/ducks/appDuck";
 
 const App = () => {
     const [configs, setConfigs] = useState({})
@@ -15,6 +16,7 @@ const App = () => {
 
     useEffect(() => {
         dispatch(fetchMessages())
+        dispatch(fetchId())
     },[])
 
     const navigate = useNavigate()
@@ -35,7 +37,7 @@ const App = () => {
             <Routes>
                 <Route path='' element={<Messages configs={configs}/>}/>
                 <Route path='configs' element={<Configs handleConfigs={handleConfigs}/>}/>
-                <Route path='auth' element={<AuthComponent/>}/>
+                <Route path='auth' element={<AuthComponent/>} />
                 <Route path=':id' element={
                     <PopupWrapper onClose={goBack}>
                         <PopupMessage/>

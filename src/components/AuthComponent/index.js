@@ -1,8 +1,9 @@
-import {AUTH_ROUTES} from "../../helpers/constants";
+import {useSelector} from "react-redux";
+import {appSelector} from "../../helpers/reduxSelctors";
+import {AUTH_ROUTES} from '../../helpers/constants'
 import Login from "../Login";
 import Registration from "../Registration";
 import {useMemo} from "react";
-import {useSelector} from "react-redux";
 
 const [LOGIN, REGISTRATION] = AUTH_ROUTES
 
@@ -12,8 +13,7 @@ const mainComponent = {
 }
 
 const AuthComponent = () => {
-    const {authRoute} = useSelector(({AppDuck}) => AppDuck)
-
+    const {authRoute} = useSelector(appSelector)
     const activeTab = useMemo(() => mainComponent[authRoute], [authRoute])
 
     return (

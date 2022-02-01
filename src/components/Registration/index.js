@@ -1,13 +1,14 @@
+import {useDispatch} from "react-redux";
 import {changeAuthRoute} from "../../redux/ducks/appDuck";
 import {AUTH_ROUTES} from "../../helpers/constants";
-import {useDispatch} from "react-redux";
 
 const Registration = () => {
     const dispatch = useDispatch()
+
     return (
         <div>
             REGISTRATION
-            <button onClick={() => dispatch(changeAuthRoute(AUTH_ROUTES[0]))}>to login</button>
+            <button onClick={() => dispatch(changeAuthRoute(AUTH_ROUTES[0]))}>go to login</button>
         </div>
     )
 }
