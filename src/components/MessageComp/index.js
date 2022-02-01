@@ -1,9 +1,11 @@
 import {memo, useEffect, useState} from "react";
 import {useDispatch, useSelector} from "react-redux";
-import {userSelector} from "../../helpers/reduxSelctors";
+import {appSelector, userSelector} from "../../helpers/reduxSelctors";
 import {api} from "../../helpers/api";
-import {deleteMessage, editMessage} from "../../redux/ducks/messageDuck";
+import {deleteMessage, editMessage, setReplyMessage} from "../../redux/ducks/messageDuck";
 import {useNavigate} from "react-router-dom";
+import {colors} from "../../helpers/constants";
+import {setId} from "../../redux/ducks/appDuck";
 
 const MessageComp = ({item, fromPopup}) => {
     const [isUserMessage, setIsUserMessage] = useState(false)
@@ -11,11 +13,13 @@ const MessageComp = ({item, fromPopup}) => {
     const [isReply, setIsReply] = useState(false)
     const [isDeleting, setIsDeleting] = useState(false)
     const [textValue, setTextValue] = useState(item.text)
+    const [replyValue, setReplyValue] = useState('')
 
     const dispatch = useDispatch()
     const navigate = useNavigate()
 
     const {currentUser} = useSelector(userSelector)
+    const {currentId} = useSelector(appSelector)
 
     useEffect(() => {
         setIsUserMessage(item.name === currentUser?.userName)
@@ -25,25 +29,27 @@ const MessageComp = ({item, fromPopup}) => {
         return <div>...Loading</div>
     }
 
-    const {id, name, date, textColor, nameColor} = item
-
+    const {id, name, date, textColor, nameColor, replies} = item
 
     const edit = () => {
-        setIsEditing(true)
+        setIsEditing(prev => !prev)
+        setIsDeleting(false)
+        setIsReply(false)
     }
 
     const handleTextChange = e => {
         setTextValue(e.target.value)
     }
 
-    const saveChanges = () => {
+    const saveChanges = ({id, name, date, textColor, nameColor, replies}, newTextValue) => {
         const body = {
             id,
             name,
             date,
-            text: textValue,
+            text: newTextValue,
             textColor,
-            nameColor
+            nameColor,
+            replies
         }
 
         fetch(`${api}/messages/${id}`, {
@@ -62,7 +68,7 @@ const MessageComp = ({item, fromPopup}) => {
         setIsEditing(false)
     }
 
-    const handleMessageDelete = () => {
+    const handleMessageDelete = (id) => {
         //TODO: firstly we navigate, then deleting for avoiding errors
 
         fetch(`${api}/messages/${id}`, {
@@ -79,12 +85,73 @@ const MessageComp = ({item, fromPopup}) => {
             .catch(err => console.log(err))
     }
 
+    const handleMessageReply = () => {
+        const repliesCopy = [...replies]
+
+        const newId = (Number(currentId) + 1).toString()
+        let date = new Date()
+            .toISOString()
+            .split('T')[0]
+            .split('-')
+            .reverse()
+            .join('/')
+
+        const replyBody = {
+            id: newId,
+            name,
+            date,
+            text: replyValue,
+            textColor: colors[0],
+            nameColor: colors[0]
+        }
+
+        repliesCopy.push(replyBody)
+
+        const body = {
+            replies: repliesCopy,
+        }
+
+        fetch(`${api}/messages/${id}`, {
+            headers: {
+                "Content-Type": "application/json"
+            },
+            method: 'PATCH',
+            body: JSON.stringify(body)
+        })
+            .then(res => res.json())
+            .then((res) => {
+                console.log('res', res)
+                fetch(`${api}/currentId`, {
+                    headers: {
+                        "Content-Type": "application/json"
+                    },
+                    method: 'PATCH',
+                    body: JSON.stringify({"id": newId})
+                })
+                    .then(res => res.json())
+                    .then(res => {
+                        dispatch(setId(res.id))
+                    })
+
+                dispatch(setReplyMessage({id, reply: replyBody}))
+            })
+            .catch(err => console.log(err))
+    }
+
     const reply = () => {
-        setIsReply(true)
+        setIsReply(prev => !prev)
+        setIsDeleting(false)
+        setIsEditing(false)
+    }
+
+    const handleReplyText = e => {
+        setReplyValue(e.target.value)
     }
 
     const toggleDeleteMsg = () => {
         setIsDeleting(prev => !prev)
+        setIsEditing(false)
+        setIsReply(false)
     }
 
     return (
@@ -95,7 +162,7 @@ const MessageComp = ({item, fromPopup}) => {
                 isEditing ?
                     <>
                         <input value={textValue} onChange={handleTextChange} type="text"/>
-                        <button onClick={saveChanges}>Save</button>
+                        <button onClick={() => saveChanges(item, textValue)}>Save</button>
                     </>
                     :
                     <p style={{color: textColor, maxWidth: '55%', textAlign: 'center'}}>{textValue}</p>
@@ -123,11 +190,24 @@ const MessageComp = ({item, fromPopup}) => {
             {
                 fromPopup && isDeleting && (
                     <div className='delete-message'>
-                        <p>Are you sure to delete this message</p>
+                        <p>Are you sure to delete this message?</p>
                         <div className='delete-buttons'>
-                            <button className='btn danger' onClick={handleMessageDelete}>Yes</button>
+                            <button className='btn danger' onClick={() => handleMessageDelete(id)}>Yes</button>
                             <button className='btn green' onClick={toggleDeleteMsg}>No</button>
                         </div>
+                    </div>
+                )
+            }
+            {
+                fromPopup && isReply && (
+                    <div className='delete-message'>
+                        <p>Write a reply</p>
+                        <input
+                            value={replyValue}
+                            onChange={handleReplyText}
+                            type="text"
+                        />
+                        <button onClick={handleMessageReply}>Reply</button>
                     </div>
                 )
             }

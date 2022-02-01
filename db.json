@@ -6,15 +6,17 @@
       "date": "17/05/2021",
       "text": "Hello Hayk",
       "textColor": "black",
-      "nameColor": "black"
+      "nameColor": "black",
+      "replies": []
     },
     {
       "id": "2",
       "name": "Hayk",
       "date": "21/03/2020",
-      "text": "I`ll be late today, I swear not to be late tomorrow",
+      "text": "I`ll be late today, yes",
       "textColor": "black",
-      "nameColor": "black"
+      "nameColor": "black",
+      "replies": []
     },
     {
       "id": "3",
@@ -22,7 +24,8 @@
       "date": "13/09/2021",
       "text": "Hey man, when can you come to hang over? I`ll be free today",
       "textColor": "black",
-      "nameColor": "black"
+      "nameColor": "black",
+      "replies": []
     },
     {
       "id": "4",
@@ -30,15 +33,17 @@
       "date": "13/09/2021",
       "text": "Hi, maybe I`ll be free after work today. I`ll call you",
       "textColor": "black",
-      "nameColor": "black"
+      "nameColor": "black",
+      "replies": []
     },
     {
-      "date": "21/03/2020",
       "id": "5",
       "name": "Hayk",
-      "nameColor": "black",
+      "date": "21/03/2020",
       "text": "Yesterday I with my application, you can check it out on my page",
-      "textColor": "black"
+      "textColor": "black",
+      "nameColor": "black",
+      "replies": []
     },
     {
       "id": "6",
@@ -46,7 +51,8 @@
       "date": "1/01/2022",
       "text": "Merry Christmas and a happy New Year",
       "textColor": "black",
-      "nameColor": "black"
+      "nameColor": "black",
+      "replies": []
     },
     {
       "id": "7",
@@ -54,7 +60,8 @@
       "date": "17/05/2021",
       "text": "My car is in service center now, I can`t visit you",
       "textColor": "black",
-      "nameColor": "black"
+      "nameColor": "black",
+      "replies": []
     },
     {
       "id": "8",
@@ -62,7 +69,8 @@
       "date": "21/03/2020",
       "text": "So, what is up with that job? Don`t reply, I know",
       "textColor": "black",
-      "nameColor": "black"
+      "nameColor": "black",
+      "replies": []
     },
     {
       "id": "9",
@@ -70,7 +78,17 @@
       "date": "13/07/2021",
       "text": "Have you ever thought about living in another country?",
       "textColor": "black",
-      "nameColor": "black"
+      "nameColor": "black",
+      "replies": []
+    },
+    {
+      "id": "26",
+      "name": "Hayk",
+      "date": "01/02/2022",
+      "text": "Hello from Hayk",
+      "textColor": "black",
+      "nameColor": "black",
+      "replies": []
     }
   ],
   "users": [
@@ -89,5 +107,8 @@
       "userName": "Karen",
       "password": "1234"
     }
-  ]
+  ],
+  "currentId": {
+    "id": "25"
+  }
 }

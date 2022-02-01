@@ -8,6 +8,7 @@ import PopupMessage from "./components/PopupMessage";
 import {useDispatch} from "react-redux";
 import {fetchMessages} from "./redux/ducks/messageDuck";
 import AuthComponent from "./components/AuthComponent";
+import {fetchId} from "./redux/ducks/appDuck";
 
 const App = () => {
     const [configs, setConfigs] = useState({})
@@ -15,6 +16,7 @@ const App = () => {
 
     useEffect(() => {
         dispatch(fetchMessages())
+        dispatch(fetchId())
     },[])
 
     const navigate = useNavigate()
