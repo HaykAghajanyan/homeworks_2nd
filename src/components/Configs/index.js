@@ -18,7 +18,7 @@ const Configs = ({handleConfigs}) => {
     }
 
     return (
-        <>
+        <div className="configs">
             <select
                 value={color}
                 onChange={changeColor}
@@ -43,7 +43,7 @@ const Configs = ({handleConfigs}) => {
                     ))
                 }
             </select>
-        </>
+        </div>
     )
 }
 
