@@ -5,13 +5,19 @@ import {
   Routes,
 } from "react-router-dom";
 
-import Select from './components/Select.js';
-import Messages from './components/Messages';
+import Select from "./components/select";
+import Messages from "./components/messages";
 
 import './App.css';
+import { useCallback, useState } from "react";
 
 
-function App() {
+const App = () => {
+  const [configs, setConfigs] = useState({})
+
+  const handleConfigs = useCallback((obj)=>{
+    setConfigs(obj)
+  }, [])
 
 
   return (
@@ -19,12 +25,12 @@ function App() {
       <header>
         <nav className='navigation'>
           <Link to="/"> Messages </Link> <br/>  
-          <Link to="/change-colors"> Change </Link> <br/>
+          <Link to="/change-colors"> Select </Link> <br/>
         </nav>
 
         <Routes>
-          <Route path="/" element = {<Messages />} />
-          <Route path="/change-colors" element = {<Select />} /> 
+          <Route path="/" element = {<Messages configs={configs} />} />
+          <Route path="/change-colors" element = {<Select handleConfigs={handleConfigs} />} /> 
         </Routes>
 
       </header>
