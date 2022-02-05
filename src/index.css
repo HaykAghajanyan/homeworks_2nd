@@ -12,6 +12,12 @@ code {
     monospace;
 }
 
+.btn {
+  padding: 5px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .header {
   display: flex;
   justify-content: space-around;
@@ -48,6 +54,29 @@ code {
 
 .message-item:last-child {
   margin: 20px auto
+}
+
+.new-post {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.new-post_inputs {
+  padding: 10px;
+}
+
+.new-post_area {
+  min-height: 100px;
+  width: 400px;
+  padding: 10px 40px;
+  border: 1px #ccc solid;
+}
+
+.new-post_area:focus {
+  outline: none;
+  border: 1px rgba(70,65,140,0.98) solid;
 }
 
 .message-filter {
