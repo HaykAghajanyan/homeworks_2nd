@@ -1,7 +1,7 @@
 const PopupWrapper = ({children, onClose}) => {
     return (
         <div className='message-item'>
-            <button onClick={onClose}>go back</button>
+            <button className='btn' onClick={onClose}>go back</button>
             {children}
         </div>
     )
