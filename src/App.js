@@ -9,6 +9,7 @@ import {useDispatch} from "react-redux";
 import {fetchMessages} from "./redux/ducks/messageDuck";
 import AuthComponent from "./components/AuthComponent";
 import {fetchId} from "./redux/ducks/appDuck";
+import Avatars from "./components/Avatars";
 
 const App = () => {
     const [configs, setConfigs] = useState({})
@@ -38,6 +39,7 @@ const App = () => {
                 <Route path='' element={<Messages configs={configs}/>}/>
                 <Route path='configs' element={<Configs handleConfigs={handleConfigs}/>}/>
                 <Route path='auth' element={<AuthComponent/>} />
+                <Route path='avatars' element={<Avatars/>} />
                 <Route path=':id' element={
                     <PopupWrapper onClose={goBack}>
                         <PopupMessage/>
