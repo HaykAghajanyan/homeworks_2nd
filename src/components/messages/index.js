@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
+import { configSelector } from "../../helpers/constSelector";
 import User from "../user";
 
 
@@ -80,8 +82,10 @@ const messages = [
 ]
 
 
-const Messages = ({configs}) => {
+const Messages = ({configs}) => { //
+
     // console.log('configs', configs);
+    
     const [messageUpdate, setMessageUpdate] = useState([])
     // const [messages, setMessages] = useState([])
 
@@ -91,13 +95,16 @@ const Messages = ({configs}) => {
     //         .then(res => setMessages(res.messages))
     // }, [])
 
+    // const {color, title} = useSelector(configSelector)
+
     useEffect(() => {
         const  messageData =  messages.map(item => {
             item[configs.title] = configs.color
+            // item[title] = color
             return item;
         })
         setMessageUpdate(messageData)
-    },[ messages, configs ])
+    },[messages]) //configs 
 
     return ( 
       <div  className="userWraper">

@@ -1,7 +1,6 @@
 import {
-  BrowserRouter as Router,
+  // BrowserRouter as Router,
   Route,
-  Link,
   Routes,
 } from "react-router-dom";
 
@@ -10,31 +9,33 @@ import Messages from "./components/messages";
 
 import './App.css';
 import { useCallback, useState } from "react";
+import Header from "./components/header";
+// import { useDispatch, useSelector } from "react-redux";
+// import { configSelector } from "./helpers/constSelector";
 
 
 const App = () => {
+  
   const [configs, setConfigs] = useState({})
 
   const handleConfigs = useCallback((obj)=>{
     setConfigs(obj)
   }, [])
 
+  // const {} = useSelector(configSelector)
 
+  // const dispatch = useDispatch()
+
+ 
   return (
-    <Router>
-      <header>
-        <nav className='navigation'>
-          <Link to="/"> Messages </Link> <br/>  
-          <Link to="/change-colors"> Select </Link> <br/>
-        </nav>
+    <>
+      <Header />
 
-        <Routes>
-          <Route path="/" element = {<Messages configs={configs} />} />
-          <Route path="/change-colors" element = {<Select handleConfigs={handleConfigs} />} /> 
-        </Routes>
-
-      </header>
-    </Router>
+      <Routes>
+        <Route path="/" element = {<Messages configs={configs} />} />
+        <Route path="/change-colors" element = {<Select handleConfigs={handleConfigs} />} /> 
+      </Routes>
+    </>
   )
 }
 
