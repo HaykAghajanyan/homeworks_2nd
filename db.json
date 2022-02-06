@@ -10,24 +10,6 @@
       "replies": []
     },
     {
-      "id": "2",
-      "name": "Hayk",
-      "date": "21/03/2020",
-      "text": "I`ll be late today",
-      "textColor": "black",
-      "nameColor": "black",
-      "replies": [
-        {
-          "id": "28",
-          "name": "Hayk",
-          "date": "01/02/2022",
-          "text": "First reply!",
-          "textColor": "black",
-          "nameColor": "black"
-        }
-      ]
-    },
-    {
       "id": "3",
       "name": "Karen",
       "date": "13/09/2021",
@@ -43,13 +25,22 @@
       "text": "Hi, maybe I`ll be free after work today. I`ll call you",
       "textColor": "black",
       "nameColor": "black",
-      "replies": []
+      "replies": [
+        {
+          "id": "30",
+          "name": "Alex",
+          "date": "06/02/2022",
+          "text": "Hello Alex",
+          "textColor": "black",
+          "nameColor": "black"
+        }
+      ]
     },
     {
       "id": "5",
       "name": "Hayk",
       "date": "21/03/2020",
-      "text": "Yesterday I with my application, you can check it out on my page",
+      "text": "Yesterday I with my application, you can check it out on my page, tomorrow",
       "textColor": "black",
       "nameColor": "black",
       "replies": []
@@ -107,6 +98,15 @@
       "textColor": "black",
       "nameColor": "black",
       "replies": []
+    },
+    {
+      "id": "29",
+      "name": "Hayk",
+      "date": "06/02/2022",
+      "text": "Hello World",
+      "textColor": "black",
+      "nameColor": "black",
+      "replies": []
     }
   ],
   "users": [
@@ -127,6 +127,6 @@
     }
   ],
   "currentId": {
-    "id": "28"
+    "id": "30"
   }
 }
